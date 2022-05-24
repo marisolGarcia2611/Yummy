@@ -1,4 +1,8 @@
 import React,{Component} from "react";
+//Se importa Link de react router dom, que es el que hara la funcion
+//de lals etiquetas <a>, hara referencias a las rutas especficadas en App.js
+//Importar en cada archivo que se necesite
+import { Link } from "react-router-dom";
 import './App.css';
 import logo from './yummy-dark.svg';
 
@@ -57,7 +61,9 @@ function LogIn() {
                 </div>
               </form>
                <div>
-                 <h6 className="text-center text-muted">You don't have an account? <a href="/" className="link-info">SingUp</a></h6>
+                 <h6 className="text-center text-muted">You don't have an account?
+                  <Link to="/SingUp">SingUp</Link>
+                  </h6>
                </div>
             </div>
           </div>
