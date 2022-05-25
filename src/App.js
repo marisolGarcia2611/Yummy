@@ -1,8 +1,11 @@
 import './App.css';
-import LogIn from './LogIn';
-import SingUp from './SingUp';
 //Se importa BrowsrRouter, Route y Routes 
 import {  BrowserRouter as Router,  Route,Routes} from "react-router-dom";
+import LogIn from './LogIn';
+import SingUp from './SingUp';
+import Main from './Main';
+import Orden from './Orden';
+
 function App() {
   return (
   <Router>
@@ -13,6 +16,7 @@ function App() {
         </section>
       }>
       </Route>
+
       <Route exact path="/SingUp" element={
         <section className="App-header">
 
@@ -20,6 +24,24 @@ function App() {
         </section>
       }>
       </Route>
+
+      <Route exact path="/Main" element={
+        <section>
+
+        <Main/>
+        </section>
+      }>
+      </Route>
+
+      <Route exact path="/Orden" element={
+        <section>
+
+        <Orden/>
+        </section>
+      }>
+      </Route>
+
+
     </Routes>
   </Router>
   );

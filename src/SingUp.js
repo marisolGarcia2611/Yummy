@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import './App.css';
-import logo from './yummy-dark.svg';
+import logo from './images/yummy-dark.svg';
 
 
 

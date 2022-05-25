@@ -4,7 +4,7 @@ import React,{Component} from "react";
 //Importar en cada archivo que se necesite
 import { Link } from "react-router-dom";
 import './App.css';
-import logo from './yummy-dark.svg';
+import logo from './images/yummy-dark.svg';
 
 
 
@@ -55,9 +55,9 @@ function LogIn() {
                   </label>
                 </div>
                 <div className="text-center"> 
-                  <button type="submit" className="btn button btn-dark btn-block mb-4">
+                  <Link  to="/Main" className="btn button btn-dark btn-block mb-4">
                     LogIn
-                  </button>
+                  </Link>
                 </div>
               </form>
                <div>
