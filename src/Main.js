@@ -284,7 +284,7 @@ window.onscroll = function() {
     console.log(window.scrollY);
     if (window.scrollY >= 385){
       document.getElementById("space2").style.position = "fixed";
-      document.getElementById("space2").style.top = "30%";
+      document.getElementById("space2").style.top = "0%";
       document.getElementById("space2").style.marginLeft = "10px";
       document.getElementById("spacephantom").style.display = "block";
     }else {
