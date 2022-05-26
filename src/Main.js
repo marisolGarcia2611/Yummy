@@ -23,7 +23,7 @@ function Main() {
 
             <div className="position-relative">
 
-            <nav id="navbar-example2" className="navbar position-absolute start-50 translate-middle-x navb px-3  ">
+            <nav id="nav1" className="navbar start-50 translate-middle-x navb px-3  ">
                 <ul className="nav nav-pills">
                     <li className="nav-item">
                     <a className="nav-link link-secondary" href="#scrollspyHeading1">Bebidas</a>
@@ -38,8 +38,10 @@ function Main() {
             </nav>
                 <div className="spacius"></div>
                 <div className="row">
+                    <div id="spacephantom" className="col-md-2 spacephantom">
 
-                    <div className="col-md-2 space2">
+                    </div>
+                    <div id="space2" className="col-md-2 space2">
                         
                         <h5>Categorias</h5> 
 
@@ -277,3 +279,31 @@ function Main() {
     );
   }
 export default Main;
+
+window.onscroll = function() {
+    console.log(window.scrollY);
+    if (window.scrollY >= 385){
+      document.getElementById("space2").style.position = "fixed";
+      document.getElementById("space2").style.top = "30%";
+      document.getElementById("space2").style.marginLeft = "10px";
+      document.getElementById("spacephantom").style.display = "block";
+    }else {
+        document.getElementById("space2").style.position = "relative";
+        document.getElementById("space2").style.marginLeft = "10px";
+      document.getElementById("space2").style.marginBottom = "20px";
+      document.getElementById("space2").style.marginTop = "35px";
+      document.getElementById("spacephantom").style.display = "none";
+    }
+
+    if (window.scrollY >= 491){
+        document.getElementById("nav1").style.position = "fixed";
+        document.getElementById("nav1").style.zIndex = "5";
+        document.getElementById("nav1").style.tops = "0";
+        document.getElementById("nav1").style.borderRadius = "20px";
+        document.getElementById("nav1").style.backgroundColor = "rgb(216, 216, 216)";
+    }else{
+        document.getElementById("nav1").style.position = "relative";
+        document.getElementById("nav1").style.backgroundColor = "rgba(30, 192, 192, 0.0)";
+    }
+
+};
