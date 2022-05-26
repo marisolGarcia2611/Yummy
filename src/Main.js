@@ -41,7 +41,7 @@ function Main() {
                     <div id="spacephantom" className="col-md-2 spacephantom">
 
                     </div>
-                    <div id="space2" className="col-md-2 space2">
+                    <div id="space2" className="col-md-2 d-none d-md-block space2">
                         
                         <h5>Categorias</h5> 
 
@@ -298,7 +298,7 @@ window.onscroll = function() {
     if (window.scrollY >= 491){
         document.getElementById("nav1").style.position = "fixed";
         document.getElementById("nav1").style.zIndex = "5";
-        document.getElementById("nav1").style.tops = "0";
+        document.getElementById("nav1").style.top = "0";
         document.getElementById("nav1").style.borderRadius = "20px";
         document.getElementById("nav1").style.backgroundColor = "rgb(216, 216, 216)";
     }else{
