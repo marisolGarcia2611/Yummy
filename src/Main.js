@@ -11,6 +11,9 @@ import iCafe2 from './images/cajeta-frappuccino.png';
 import iSalado from './images/Sandwich Pavo Panela.png';
 import iSaladoH from './images/Grilled Cheese Sandwich.png';
 import iSaludable from './images/Ensalada Cesar.png';
+import perfil from './images/usuario.png';
+import trash__ico from './images/trash-fill.svg';
+import edit__ico from './images/icons8-edit (1).svg';
 
 
 
@@ -89,15 +92,92 @@ function Main() {
                             </div>
                         </div>
                         </div>
-
-
-
-
-                              
+                    
+                        <div>
+                         <button type="button" data-bs-toggle="modal" data-bs-target="#addModal" className=" card btn btn-warning text-center">
+                             <b>+ Añadir producto</b>
+                             </button>
+                        </div> 
                     </div>
+                  
 
-                    <div className="col-md-9">
-                        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" className="scrollspy-example" tabindex="0">
+
+
+                            <div className="modal fade" id="addModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div className="modal-dialog ">
+                                <div className="modal-content modalLook">
+                                <div className="modal-header text-light bg-dark">
+                                    <h5 className="text-center modal-title" id="exampleModalLabel">Nuevo producto</h5>
+                                </div>
+                                <div className="modal-body">
+                                    <form>
+                                    <div className="row">
+                                      <div className="col-md-8 mb-3">
+                                            <label htmlFor="inputName" className="fw-bold form-label">Nombre</label>
+                                            <input type="text" className="form-control" id="name" aria-describedby="name" placeholder="Nombre de producto" required/>
+                                            <div id="name" className="form-text">Elije un nombre que realmente represente a tu producto.</div>
+                                      </div>  
+                                      <div className="col-md-4 mb-3">
+                                            <label htmlFor="inputPrecio" className="fw-bold form-label">Precio</label>
+                                            <input type="number" className="form-control" id="precio" aria-describedby="name" placeholder="00.00" required/>
+                                      </div>
+                                    </div>
+                                    
+                                    
+                                    <div className="mb-3">
+                                            <label className="fw-bold" htmlFor="floatingTextarea">Descripción</label>
+                                            <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>                                    
+                                    </div>
+
+                                    <div className="row">
+                                    <label htmlFor="chekCategoria" className="text-center  fw-bold form-label">Elegir Categoria</label>
+                                    <div className="col text-center">
+                                        <div className="form-check form-check-inline">
+                                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" defaultValue="option1"/>
+                                            <label className="form-check-label"  htmlFor="inlineRadio1">Bebidas</label>
+                                        </div>
+                                        <div className="form-check form-check-inline">
+                                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" defaultValue="option2"/>
+                                            <label className="form-check-label"  htmlFor="inlineRadio2">Alimentos</label>
+                                        </div>
+                                        <div className="form-check form-check-inline">
+                                            <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" defaultValue="option3"/>
+                                            <label className="form-check-label"  htmlFor="inlineRadio3">Postres</label>
+                                        </div> 
+                                    </div>              
+                                    </div>
+
+                                    <div className="mb-5">
+                                            <select className="form-select form-select-sm" aria-label=".form-select-sm example">
+                                                <option select="true">Open this select menu</option>
+                                                <option defaultValue="1">Bebidas calientes</option>
+                                                <option defaultValue="2">Bebidas frías</option>
+                                                <option defaultValue="3">Bebidas base te</option>
+                                            </select>
+                                    </div>  
+
+                                    <div className="mb-3">
+                                    <label htmlFor="inputImagen" className="fw-bold form-label">Imagen del producto</label><br/>
+                                    <input  type="file" id="filechooser"/>
+                                    </div>
+                                    <br/>
+                                                            
+                                <div className="modal-footer">
+                                    <button type="button" className="btn btn-outline-danger card" data-bs-dismiss="modal">Cancelar</button>
+                                    <button type="submit" className="btn btn-outline-success card">Guardar</button>
+                                </div>
+                            </form>
+                            </div>
+                                </div>
+                            </div>
+                            </div>
+
+
+
+
+                    <div className="col-md-9">  
+                               
+                        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" className="scrollspy-example" tabIndex="0">
                             <h1 id="scrollspyHeading1">Bebidas</h1>
                             <div className="space1">
                                 <div className="row">
@@ -105,17 +185,28 @@ function Main() {
                                     <h5 className="text-center" id="BebidasCalientes">Bebidas calientes</h5>
                                     <hr/>
                                     <div className="col-md-4">
-
-                                        <div className="card card_Backgraund">
-                                        <div className="card-body text-center">
-                                        <img src={iCafe1} className="img__Cafe"></img>
+                                           
+                                        <div className="card card_Backgraund">                                          
+                                        <div className="card-body text-center">                                 
+                                        <img src={iCafe1} className="img__Cafe"></img>                                         
                                         <h5 className="card-title">Mocha</h5>
                                         <h6 className="card-subtitle mb-2 text-muted">$00.00</h6>
                                         <p className="card-text">Nuestro característico espresso se combina con salsa de chocolate blanco, leche al vapor y crema batida.</p>
-                                        </div>
-                                        </div>
+                                            <div className="position-relative">
+                                                    <div className=" position-absolute end-0">
+                                                        <button className=" btn btn-danger btn__rounded">
+                                                        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" className="img__ico bi bi-trash-fill" viewBox="0 0 16 16">
+                                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                                        </svg>    
+                                                        </button>
+                                                        <button className=" btn btn-dark btn__rounded"><img className="img__ico" src={edit__ico}></img></button>
+                                                    </div>                                          
+                                            </div> 
 
+                                        </div>
+                                        </div>                                    
                                     </div>
+
                                     <div className="col-md-4">
 
                                         <div className="card card_Backgraund">
@@ -272,6 +363,7 @@ function Main() {
                 </div>
                 
             </div>
+       
            
 
        </section>
@@ -282,7 +374,7 @@ export default Main;
 
 window.onscroll = function() {
     console.log(window.scrollY);
-    if (window.scrollY >= 385){
+    if (window.scrollY >= 571){
       document.getElementById("space2").style.position = "fixed";
       document.getElementById("space2").style.top = "0%";
       document.getElementById("space2").style.marginLeft = "10px";
@@ -306,4 +398,23 @@ window.onscroll = function() {
         document.getElementById("nav1").style.backgroundColor = "rgba(30, 192, 192, 0.0)";
     }
 
+};
+function uploadFile() {
+    var blobFile = $('#filechooser').files[0];
+    var formData = new FormData();
+    formData.append("fileToUpload", blobFile);
+
+    $.ajax({
+       url: "upload.php",
+       type: "POST",
+       data: formData,
+       processData: false,
+       contentType: false,
+       success: function(response) {
+           // .. hacer algo...
+       },
+       error: function(jqXHR, textStatus, errorMessage) {
+           console.log(errorMessage); // Opcional
+       }
+    });
 };
