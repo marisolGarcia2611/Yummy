@@ -1,10 +1,10 @@
-import React,{Component} from "react";
+import React,{Component,useState} from "react";
 //Se importa Link de react router dom, que es el que hara la funcion
 //de lals etiquetas <a>, hara referencias a las rutas especficadas en App.js
 //Importar en cada archivo que se necesite
 import { Link } from "react-router-dom";
 import './App.css';
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import iCafe1 from "./images/mocha.png";
 import iTea from './images/shaken-black-tea.png';
 import iCafe2 from './images/cajeta-frappuccino.png';
@@ -14,13 +14,17 @@ import iSaludable from './images/Ensalada Cesar.png';
 import perfil from './images/usuario.png';
 import trash__ico from './images/trash-fill.svg';
 import edit__ico from './images/icons8-edit (1).svg';
+import Cookies from "universal-cookie";
+import BlockUI from "./Componentes/BlockUI/BlockUI";
 
 
 
 function Main() {
-     return (
+    const [block, setBlock] = useState(false)
+    return (
        <section>
-           <Navbar/>
+                <BlockUI blocking={block}/>
+           {/* <Navbar/> */}
            <div className="image__nav">
            </div>
 
