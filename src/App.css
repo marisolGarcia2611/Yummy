@@ -204,3 +204,9 @@ transition: all 0.3s ease;
   }
 }
 
+.tamSide{
+  width:25%
+}
+.margSide{
+  margin-left:25%
+}
