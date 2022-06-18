@@ -23,10 +23,10 @@ function Navbar() {
             <div className="navbar-nav">
                 <Link to="/Orden" className="nav-link text-light" aria-current="page">Ordenar</Link>
             <div className="position-absolute top-0 start-50 translate-middle-x">
-            <img src={logo} className="image__logo" alt="logo"/>
+            <img src={logo} className="image__logo d-none d-md-block" alt="logo"/>
             </div>
-                <Link to="/" className="nav-link text-light position-absolute end-0" aria-current="page">
-                <img src={perfil} className="" alt="perfil"/>
+                <Link to="/" className=" nav-link text-light position-absolute end-0" aria-current="page">
+                <img src={perfil} className="img__Perfil " alt="perfil"/>
                 </Link>
             </div>
             </div>

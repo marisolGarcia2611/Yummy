@@ -114,8 +114,8 @@ transition: all 0.3s ease;
  }
 
 .card:hover {
--webkit-transform: scale(1.03) !important;
-      transform: scale(1.03) !important;
+-webkit-transform: scale(1.1) !important;
+      transform: scale(1.01) !important;
   }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -173,28 +173,76 @@ transition: all 0.3s ease;
   margin-left: 10px;
   margin-bottom: 20px;
   margin-top: 35px;
+ /*position: fixed;
+  left: 0;
+  top: 30%;
+  z-index: 5;*/
+}
+
+body{
+  overflow-x: hidden;
+}
+
+.spacephantom{
+  margin-left: 10px;
+  margin-bottom: 20px;
+  margin-top: 35px;
+  display: none;
 }
 .navb{
   margin-top: 5px;
   margin-bottom: 20px;
   transition: .4s;
-  position:fixed;
+  position:absolute;
+  width: fit-content;
   
 }
 .navb:hover {
   border-radius: 20px;
-  background: rgba(30, 192, 192, 0.521);
+  background: rgb(216, 216, 216);
   color: rgb(255, 255, 255);
 }
 
 .spacius{
-  height: 100px;;
+  height: 40px;
 }
 .img__Cafe{
   margin-top: -110px;
 }
+.img__Perfil{
+  width: 25px;
+  height: 25px;
+}
 
+.b-aligment{
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.modalLook{
+  border-radius: 25px;
+  border: 0px;
+}
 
+.btn__rounded{
+  border-radius: 50px;
+  padding-right: 35px;
+  height: 47px;
+  width: 40px;
+  margin-left: 5px;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;  
+   }
+  
+  .btn__rounded:hover {
+  -webkit-transform: scale(1.09) !important;
+        transform: scale(1.09) !important;
+    }
+  .img__ico{
+    width: 20px;
+    height: 20;
+  }
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
