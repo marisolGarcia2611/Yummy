@@ -5,6 +5,10 @@ import LogIn from './LogIn';
 import SingUp from './SingUp';
 import Main from './Main';
 import Orden from './Orden';
+/*Menu
+Ordenes
+Pedidos
+Administrativo*/
 
 function App() {
   return (
