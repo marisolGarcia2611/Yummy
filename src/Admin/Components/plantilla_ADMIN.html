@@ -1,0 +1,311 @@
+?>
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>DPN Stash | Admin</title>
+      <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
+
+      <!-- Google Font: Source Sans Pro -->
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+      <!-- JQuery 6 -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+      <!--AdminLTE-3-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/adminlte.min.css" integrity="sha512-IuO+tczf4J43RzbCMEFggCWW5JuX78IrCJRFFBoQEXNvGI6gkUw4OjuwMidiS4Lm9Q2lILzpJwZuMWuSEeT9UQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <!-- <link href="<?php echo($DIST_PATH) ?>/admin-lte-3/css/adminlte.min.css" rel="stylesheet" /> -->
+
+      <!-- Dataables => DataTables | DataTables | AutoFill - Buttons - Responsive - Scroller -->
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.3/af-2.3.7/b-2.0.1/b-html5-2.0.1/b-print-2.0.1/r-2.2.9/sc-2.0.5/datatables.min.css" />
+      <!-- <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.0.1/css/fixedColumns.dataTables.min.css"> -->
+      <!-- <script src="https://cdn.datatables.net/fixedcolumns/4.0.1/js/dataTables.fixedColumns.min.js"></script> -->
+
+      <!-- Select2 -->
+      <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+      <!-- FontAwesome 6 -->
+      <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.0/css/all.css">
+
+      <!-- SweetAlert2 -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.1.9/sweetalert2.min.css" integrity="sha512-cyIcYOviYhF0bHIhzXWJQ/7xnaBuIIOecYoPZBgJHQKFPo+TOBA+BY1EnTpmM8yKDU4ZdI3UGccNGCEUdfbBqw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+      <!---------------------------- OPCIONES EXTRAS ---------------------------->
+      <!-- Moment JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <!-- Moment JS en español -->
+      <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/locale/es.js"></script> -->
+
+      <!-- IMask JS -->
+      <!--<script src="https://unpkg.com/imask"></script>-->
+      <!---------------------------- OPCIONES EXTRAS ---------------------------->
+
+      <!-- MisEstilos -->
+      <!-- <link href="<?php echo($DIST_PATH) ?>/Css/misEstilos.css" rel="stylesheet" /> -->
+
+   </head>
+   <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed text-sm">
+
+      <!-- Site wrapper -->
+      <div class="wrapper">
+         <!-- Navbar -->
+         <nav class="main-header navbar navbar-expand">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+               <li class="nav-item">
+                  <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+               </li>
+            </ul>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+               <!-- Perfil -->
+               <li class='nav-item'>
+                  <div class='user-panel d-flex'>
+                     <div class='info'>
+                        <span class='d-block text-decoration-none text-bold'><i class=''>Nombre de usuario</i></span>
+                     </div>
+                  </div>
+               </li>
+               <!-- Btn Logout -->
+               <li class='nav-item ml-3'>
+                  <a href='#' id="btn_cerrar_sesion" class='btn btn-outline-danger btn_cerrar_sesion' title='Logout'><i class="fas fa-door-closed"></i></a>
+               </li>
+            </ul>
+         </nav>
+         <!-- /.navbar -->
+         <!-- Main Sidebar Container -->
+         <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="<?php echo($URL_BASE) ?>/Admin" class="brand-link text-md" title="Return to Admin page">
+               <img src="<?php echo($ICONO) ?>" alt="Logo" class="brand-image" style="opacity: .8">
+               <span class="ml-3 fw-bold">dpn</span>
+               <span class="brand-text fw-light">Stash</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+
+               <!-- Sidebar Menu -->
+               <nav class="mt-2">
+               <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                     <!-- CATÁLOGOS -->
+                     <li class="nav-item menu-is-opening menu-open">
+                        <a href="#" class="nav-link">
+                           <i class="nav-icon fa-solid fa-folder-tree"></i>
+                           <p>
+                                 Administration
+                        <i class="right fas fa-angle-left"></i>
+                           </p>
+                        </a>
+                        <ul class="nav nav-treeview text-sm">
+                           <li class="nav-item">
+                                 <a href="<?php echo($ADMIN_PATH)?>/users.php" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-sm"></i>
+                                    <p>Users</p>
+                                 </a>
+                           </li>
+                           <li class="nav-item">
+                                 <a href="<?php echo($ADMIN_PATH)?>/customers.php" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-sm"></i>
+                                    <p>Customers</p>
+                                 </a>
+                           </li>
+                           <li class="nav-item">
+                                 <a href="<?php echo($ADMIN_PATH)?>/report_types.php" class="nav-link">
+                                    <i class="far fa-circle nav-icon text-sm"></i>
+                                    <p>Report Types</p>
+                                 </a>
+                           </li>
+                        </ul>
+                     </li>
+               </ul>
+            </nav>
+               <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+         </aside>
+         <!-- Content Wrapper. Contenido de la pagina -->
+         <div class="content-wrapper text-sm">
+            <!-- Content Header (Encabezado en el contenido de la pagina) -->
+            <section class="content-header">
+               <div class="container-fluid">
+                  <div class="row mb-2">
+                     <div class="col-sm-6">
+                        <h1>
+                           <i class="fa-solid fa-user-tie"></i>&nbsp; <?php echo $pagina_acutal ?>
+                           <!-- <em class="fw-ligth text-muted lead text-sm">| </em> -->
+                        </h1>
+                     </div>
+                     <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                           <li class="breadcrumb-item"><a href="<?php echo $ADMIN_PATH ?>"><i class="fa-solid fa-house"></i>&nbsp; Admin</a></li>
+                           <li class="breadcrumb-item">Administration</li>
+                           <li class="breadcrumb-item active"><?php echo $pagina_acutal ?></li>
+                        </ol>
+                     </div>
+                  </div>
+               </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+
+               <!-- card -->
+               <div class="card card-outline card-dark shadow">
+                  <div class="container-fluid mt-2">
+                     <button id="btn_abrir_modal" class="float-end btn btn-success fw-bold" data-bs-toggle="modal" data-bs-target="#modal"><i class="fa-solid fa-circle-plus"></i>&nbsp; ADD USER</button>
+                  </div>
+                  <div class="card-body">
+                     <!-- tabla -->
+                     <div class="table-responsive">
+                     <table id="tabla_usuarios" class="table table-hover text-center" style="width:100%">
+                        <thead class="thead-dark">
+                           <tr>
+                              <th>Username</th>
+                              <th>E-mail</th>
+                              <th>Profile</th>
+                              <th>Since Member</th>
+                              <th>Edit / Delete</th>
+                           </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                        <tfoot>
+                           <tr class="thead-dark">
+                              <th>Username</th>
+                              <th>E-mail</th>
+                              <th>Profile</th>
+                              <th>Since Member</th>
+                              <th>Edit / Delete</th>
+                           </tr>
+                        </tfoot>
+                     </table>
+                     </div>
+                  </div>
+                  <!-- /.card-body -->
+               </div>
+               <!-- /.card -->
+
+            </section>
+            <!-- /.content -->
+
+            <!-- Modal Usuario -->
+            <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+               <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h5 class="modal-title fw-bold" id="modalLabel"><i class="fa-solid fa-user-plus"></i>&nbsp; REGISTRAR USUARIO</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body">
+                        <form id="formulario" enctype="multipart/form-data">
+                           <input type="hidden" id="accion" name="accion" value="iniciar_sesion">
+                           <input type="hidden" id="id" name="id" value=''>
+                           <div class="mb-3">
+                              <label for="input_usuario" class="form-label">Username: <span class="span_campo_obligatorio"></label>
+                              <input type="text" class="form-control" id="input_usuario" name="input_usuario">
+                           </div>
+                           <div class="mb-3">
+                              <label for="input_correo" class="form-label">E-mail: <span class="span_campo_obligatorio"></label>
+                              <input type="email" class="form-control" id="input_correo" name="input_correo">
+                           </div>
+                           <div class="mb-3 row" id="div_contrasenia">
+                           <div class="col">
+                              <label for="input_contrasenia" class="form-label">Password: <span class="span_campo_obligatorio"></label>
+                              <input type="password" class="form-control" id="input_contrasenia" name="input_contrasenia">
+                              </div>
+                              <div class="col">
+                              <label for="input_confirmar_contrasenia" class="form-label">Confirm Password: <span class="span_campo_obligatorio"></label>
+                              <input type="password" class="form-control" id="input_confirmar_contrasenia" name="input_confirmar_contrasenia">
+                              <span class="fst-italic" id="respuesta_contrasena"></span>
+                              </div>
+                           </div>
+                           <div class="mb-3" id="div_nueva_contrasenia">
+                              <label for="input_nueva_contrasenia" class="form-label">New Password:</label>
+                              <input type="text" class="form-control" id="input_nueva_contrasenia" name="input_nueva_contrasenia">
+                              <span class="custom-control custom-switch">
+                              <input type="checkbox" class="custom-control-input" id="switch_nueva_contrasena">
+                              <label class="custom-control-label text-sm" for="switch_nueva_contrasena">Enable password change</label>
+                              </span>
+                           </div>
+                           <div class="mb-3">
+                              <label for="input_id_perfil" class="form-label">Profile: <span class="span_campo_obligatorio"></label>
+                              <select class="select2 form-control" style="width:100%" aria-label="Default select example" id="input_id_perfil" name="input_id_perfil">
+                                 <option selected value="-1">Select...</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="modal-footer">
+                           <button type="submit" id="btn_enviar_formulario" class="btn btn-success fw-bold">ADD</button>
+                           <button type="reset" id="btn_reset_formulario" class="btn btn-secondary">CLEAR</button>
+                           </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+         <!-- /.content-wrapper -->
+
+
+      </div>
+      <!-- ./wrapper (este se abre en el Template-header) -->
+
+      <!-- SCRIPTS -->
+      <!-- JQuery 6 -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+      <!-- Option 1: Bootstrap Bundle with Popper -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+      <!--AdminLTE-3-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/js/adminlte.min.js" integrity="sha512-KBeR1NhClUySj9xBB0+KRqYLPkM6VvXiiWaSz/8LCQNdRpUm38SWUrj0ccNDNSkwCD9qPA4KobLliG26yPppJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <!-- <script src="<?php echo($DIST_PATH) ?>/admin-lte-3/js/adminlte.min.js"></script> -->
+
+      <!-- DataTables -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.3/af-2.3.7/b-2.0.1/b-html5-2.0.1/b-print-2.0.1/r-2.2.9/sc-2.0.5/datatables.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/dataTables.buttons.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.3.1/js/buttons.html5.min.js"></script>
+      <!-- Moment JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+      <!-- SweetAlert2 -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.9/dist/sweetalert2.all.min.js"></script>
+
+      <!-- Select2 -->
+      <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+      <!-- <script src="<?php echo($VENDORS_PATH) ?>/BlockUI/jquery.blockui.min.js"></script> -->
+      <!-- ya esta instaldo en el proyecto yummy -->
+
+
+      <!--MisScripts-->
+      <!-- ESTE ES EL SCRIPT QUE USO DE MANERA PRINCIPAL/GENERAL/GENERICA, es decir,
+      aqui pongo los metodos que son muy usuados, que se repiten mucho y en muchas paginas -->
+      <script src="<?php echo($SCRIPTS_PATH) ?>/admin.js"></script>
+
+
+      <!---------------------------- OPCIONES EXTRAS ---------------------------->
+      <!-- DATETIMEPICKER -->
+      <!--<script type="text/javascript" src="<?php echo ($PLUGINS_PATH) ?>/datetimepicker/bootstrap-datetimepicker.min.js"></script>-->
+
+      <!-- CHART JS -->
+      <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+
+      <!-- IMask JS -->
+      <!-- <script src="https://unpkg.com/imask"></script> -->
+
+      <!-- ESTE ES EL SCRIPT EXCLUSIVO PARA CADA PAGINA -->
+      <script src="<?php echo($SCRIPTS_PATH) ?>/users.js"></script>
+   </body>
+</html>
