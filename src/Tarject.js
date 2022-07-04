@@ -15,11 +15,11 @@ function Tarject() {
       <section>
         <div className="card card1 efect__tarject b-opac tarject__estruct">
                       <div className="card-body">
-                        <h3 className="card-tittle">Mocha</h3>
+                        <h3 className="card-tittle text-end ">Coffe</h3>
                         <p className="card-body text-end">$00.00</p>
                         <div className="Position-relative">
                           <div>
-                             <img className="position-absolute top-100 start-0 translate-middle img__tarject" src={iCafe1}/>
+                             <img className="position-absolute top-100 start-0 translate-middle" src={iCafe1}/>
                           </div>
                         </div>
                       </div>

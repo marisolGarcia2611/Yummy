@@ -7,8 +7,9 @@ import './App.css';
 import Navbar from "./Navbar";
 import logo from './yummy-dark.svg';
 import iCafe1 from "./images/mocha.png";
-import Tarject from "./Tarject";
-import Search from "./Search";
+import DiseñoCafe from "./DiseñoCafe";
+import Sidebar from "./Sidebar";
+
 
 
 
@@ -19,16 +20,14 @@ function Orden() {
            <Navbar/>
            <div>
             <div className="row">
-
-              <div className="col-md-4 b-yellow">
-                <Search/>
-                  <div>
-                    <Tarject/>
-                    <Tarject/>
-                  </div>
+              
+              {/* SIDEBAR */}
+              <div className="col-md-3 b-yellow">
+              <Sidebar/>
               </div>
-
-              <div className="space__stuct col-md-8">
+              
+              {/*DISEÑO DE CAFE*/}
+              <div className="space__stuct col-md-9">
                 <h3 className="letters__struct2">BEBIDA CALIENTE</h3>
                 <h1 className="letters__struct">Mocha</h1>
                   <br/>
@@ -45,26 +44,26 @@ function Orden() {
               
                     <div className="row text-center">
                       <div className="btn tarject__btn col-md-2">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cup" viewBox="0 0 16 16">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="ic2 bi bi-cup" viewBox="0 0 16 16">
                             <path d="M1 2a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v1h.5A1.5 1.5 0 0 1 16 4.5v7a1.5 1.5 0 0 1-1.5 1.5h-.55a2.5 2.5 0 0 1-2.45 2h-8A2.5 2.5 0 0 1 1 12.5V2zm13 10h.5a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.5-.5H14v8zM13 2H2v10.5A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V2z"/>
                           </svg>
-                          <p className="fw-bold lt">CH<br/><p className="fw-light">$00.00</p></p>
+                          <p className="fw-light lt"><b className="fw-bold">CH</b><br/>$00.00</p>
 
                       </div>
 
                       <div className="btn tarject__btn col-md-2">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cup" viewBox="0 0 16 16">
+                          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="ic2 bi bi-cup" viewBox="0 0 16 16">
                             <path d="M1 2a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v1h.5A1.5 1.5 0 0 1 16 4.5v7a1.5 1.5 0 0 1-1.5 1.5h-.55a2.5 2.5 0 0 1-2.45 2h-8A2.5 2.5 0 0 1 1 12.5V2zm13 10h.5a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.5-.5H14v8zM13 2H2v10.5A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V2z"/>
                           </svg>
-                          <p className="fw-bold lt">MD<br/><p className="fw-light">$00.00</p></p>
+                          <p className="fw-light lt"><b className="fw-bold">MD</b><br/>$00.00</p>
 
                       </div>
 
                       <div className="btn tarject__btn col-md-2">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-cup" viewBox="0 0 16 16">
+                          <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" className="ic2 bi bi-cup" viewBox="0 0 16 16">
                             <path d="M1 2a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v1h.5A1.5 1.5 0 0 1 16 4.5v7a1.5 1.5 0 0 1-1.5 1.5h-.55a2.5 2.5 0 0 1-2.45 2h-8A2.5 2.5 0 0 1 1 12.5V2zm13 10h.5a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.5-.5H14v8zM13 2H2v10.5A1.5 1.5 0 0 0 3.5 14h8a1.5 1.5 0 0 0 1.5-1.5V2z"/>
                           </svg>
-                          <p className="fw-bold lt">GR<br/><p className="fw-light">$00.00</p></p>
+                          <p className="fw-light lt"><b className="fw-bold">GR</b><br/>$00.00</p>
 
                       </div>
                     </div>
@@ -82,17 +81,17 @@ function Orden() {
 
                     <div className="row text-center">
                       <div className="btn tarject__btn col-md-3">                          
-                          <p className="fw-bold lt">ENTERA<br/><p className="fw-light">$00.00</p></p>
+                        <p className="fw-light lt"><b className="fw-bold">ENTERA</b><br/>$00.00</p>
 
                       </div>
 
                       <div className="btn tarject__btn col-md-3">
-                          <p className="fw-bold lt">DESLACTOSADA<br/><p className="fw-light">$00.00</p></p>
+                      <p className="fw-light lt"><b className="fw-bold">DESLACTOSADA</b><br/>$00.00</p>
 
                       </div>
 
                       <div className="btn tarject__btn col-md-3">
-                          <p className="fw-bold lt">LIGHT<br/><p className="fw-light">$00.00</p></p>
+                          <p className="fw-light lt"><b className="fw-bold">LIGHT</b><br/>$00.00</p>
 
                       </div>
                     </div>
@@ -110,22 +109,22 @@ function Orden() {
 
                     <div className="row text-center">
                       <div className="btn tarject__btn col-md-2">                          
-                          <p className="fw-bold lt">CHOCOLATE<br/><p className="fw-light">$00.00</p></p>
+                         <p className="fw-light lt"><b className="fw-bold">CHOCOLATE</b><br/>$00.00</p>
 
                       </div>
 
                       <div className="btn tarject__btn col-md-2">
-                          <p className="fw-bold lt">MALVADISCO<br/><p className="fw-light">$00.00</p></p>
+                      <p className="fw-light lt"><b className="fw-bold">MALVADISCO</b><br/>$00.00</p>
 
                       </div>
 
                       <div className="btn tarject__btn col-md-2">
-                          <p className="fw-bold lt">GRANOLA<br/><p className="fw-light">$00.00</p></p>
+                      <p className="fw-light lt"><b className="fw-bold">GRANOLA</b><br/>$00.00</p>
 
                       </div>
 
                       <div className="btn tarject__btn col-md-2">
-                          <p className="fw-bold lt">FRESA<br/><p className="fw-light">$00.00</p></p>
+                      <p className="fw-light lt"><b className="fw-bold">FRESA</b><br/>$00.00</p>
 
                       </div>
 
@@ -151,7 +150,7 @@ function Orden() {
                             </div>
                             <div className="col-md-2">
                             <button className="btn btn__struct">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="ic1 bi bi-plus-circle" viewBox="0 0 16 16">
                               <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                               <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
                             </svg></button>
@@ -166,9 +165,11 @@ function Orden() {
                   </div>
 
                   <div className="col-md-4">
-                    <div className="space__stuct1">
-                      hola
-                    </div>
+                    <DiseñoCafe/>
+
+
+
+
                   </div>
 
                 </div>
