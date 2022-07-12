@@ -1,7 +1,8 @@
-'use strict';
-$(document).ready(() => {
 
-});
+// 'use strict';
+// $(document).ready(() => {
+
+// });
 
 //#region RUTAS AL APP DE LOS MODELOS
 const
@@ -257,9 +258,10 @@ function mostrarToast(icono, mensaje, posicion) {
 
    Toast.fire({icon: icono, title: mensaje})
 }
-function mostrarBlockOutCargando() {
+function mostrarBlockOutCargando(title) {
+   if (title == null) {title= 'Cargando...'}
    Swal.fire({
-      title: 'Cargando...',
+      title: title,
       // html: 'I will close in <b></b> milliseconds.',
       allowEscapeKey: false,
       allowOutsideClick: false,
@@ -571,3 +573,6 @@ function keyInicia(){
      });
    }
  }
+
+
+export {mostrarToast, mostrarBlockOutCargando}

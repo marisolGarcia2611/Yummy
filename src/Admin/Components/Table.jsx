@@ -9,7 +9,7 @@ function Table() {
       <section>
          {/* <!-- tabla --> */}
          <div className="table-responsive">
-         <table id="tabla_usuarios" className="table table-hover text-center" /* style="width:100%" */>
+         <table id="tabla_usuarios" className="table table-hover text-center" /* style={{width:"100%"}} */>
             <thead className="thead-dark">
                <tr>
                   <th>Nombre</th>

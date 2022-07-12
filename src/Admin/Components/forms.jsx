@@ -19,39 +19,39 @@ function Form() {
                         <input type="hidden" id="accion" name="accion" value="iniciar_sesion"/>
                         <input type="hidden" id="id" name="id" value=''/>
                         <div className="mb-3">
-                           <label forName="input_usuario" className="form-label">Nombres: <span className="span_campo_obligatorio"/></label>
+                           <label htmlFor="input_usuario" className="form-label">Nombres: <span className="span_campo_obligatorio"/></label>
                            <input type="text" className="form-control" id="input_usuario" name="input_usuario"/>
                         </div>
                         <div className="mb-3">
-                           <label forName="input_last_name" className="form-label">Apellidos: <span className="span_campo_obligatorio"/></label>
+                           <label htmlFor="input_last_name" className="form-label">Apellidos: <span className="span_campo_obligatorio"/></label>
                            <input type="text" className="form-control" id="input_last_name" name="input_last_name"/>
                         </div>
                         <div className="mb-3">
-                           <label /* for="input_correo" */ className="form-label">Correo: <span className="span_campo_obligatorio"/></label>
+                           <label htmlFor="input_correo" className="form-label">Correo: <span className="span_campo_obligatorio"/></label>
                            <input type="email" className="form-control" id="input_correo" name="input_correo"/>
                         </div>
                         <div className="mb-3 row" id="div_contrasenia">
                         <div className="col">
-                           <label /* for="input_contrasenia" */ className="form-label">Contraseña: <span className="span_campo_obligatorio"/></label>
+                           <label htmlFor="input_contrasenia" className="form-label">Contraseña: <span className="span_campo_obligatorio"/></label>
                            <input type="password" className="form-control" id="input_contrasenia" name="input_contrasenia"/>
                            </div>
                            <div className="col">
-                           <label /* for="input_confirmar_contrasenia" */ className="form-label">Confirmar Contraseña: <span className="span_campo_obligatorio"/></label>
+                           <label htmlFor="input_confirmar_contrasenia" className="form-label">Confirmar Contraseña: <span className="span_campo_obligatorio"/></label>
                            <input type="password" className="form-control" id="input_confirmar_contrasenia" name="input_confirmar_contrasenia"/>
                            <span className="fst-italic" id="respuesta_contrasena"></span>
                            </div>
                         </div>
                         <div className="mb-3" hidden id="div_nueva_contrasenia">
-                           <label /* for="input_nueva_contrasenia" */ className="form-label">Nueva Contraseña:</label>
+                           <label htmlFor="input_nueva_contrasenia" className="form-label">Nueva Contraseña:</label>
                            <input type="text" className="form-control" id="input_nueva_contrasenia" name="input_nueva_contrasenia"/>
                            <span className="custom-control custom-switch">
                            <input type="checkbox" className="custom-control-input" id="switch_nueva_contrasena"/>
-                           <label className="custom-control-label text-sm" /* for="switch_nueva_contrasena" */>Enable password change</label>
+                           <label className="custom-control-label text-sm" htmlFor="switch_nueva_contrasena">Enable password change</label>
                            </span>
                         </div>
                         <div className="mb-3">
-                           <label /* for="input_id_perfil" */ className="form-label">Tipo de Usuario: <span className="span_campo_obligatorio"/></label>
-                           <select className="select2 form-control" /* style="width:100%" */ aria-label="Default select example" id="input_id_perfil" name="input_id_perfil">
+                           <label htmlFor="input_id_perfil" className="form-label">Tipo de Usuario: <span className="span_campo_obligatorio"/></label>
+                           <select className="select2 form-control" style={{width:"100%"}} aria-label="Default select example" id="input_id_perfil" name="input_id_perfil">
                               <option defaultValue value="-1">Selecciona una opción...</option>
                            </select>
                         </div>

@@ -14,7 +14,7 @@ function SideBar() {
          <aside className="main-sidebar sidebar-dark-primary elevation-4">
             {/* <!-- Brand Logo --> */}
             <a href="<?php echo($URL_BASE) ?>/Admin" className="brand-link text-md" title="Return to Admin page">
-               {/* <img src={logo} alt="Logo" className="brand-image" style="opacity: .8"/> */}
+               {/* <img src={logo} alt="Logo" className="brand-image" style={{opacity:".8"}}/> */}
                <img src={logo} className="brand-image" alt="logo"/>
                <span className="ml-3 fw-bold">YUMMY</span>
                <span className="brand-text fw-light">app</span>

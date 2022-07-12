@@ -27,11 +27,13 @@ import Form from "./Components/forms";
 
 const current_page = "Usuarios";
 
-function Users() {
+function Users(props) {
    return (
       <section>
          {/* <!-- Content Wrapper. Contenido de la pagina --> */}
          <div className="content-wrapper text-sm">
+            {/* {props.block("Cargala compa")} */}
+            {/* {props.toast("success","Aaaajasss")} */}
             {/* <!-- Content Header (Encabezado en el contenido de la pagina) --> */}
             <HeaderPage current_page={current_page}/>
 
