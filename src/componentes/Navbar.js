@@ -3,9 +3,9 @@ import React,{Component} from "react";
 //de lals etiquetas <a>, hara referencias a las rutas especficadas en App.js
 //Importar en cada archivo que se necesite
 import { Link } from "react-router-dom";
-import './App.css';
-import logo from './images/yummy.svg';
-import perfil from './images/usuario.png';
+import '../App.css';
+import logo from '../images/yummy.svg';
+import perfil from '../images/usuario.png';
 import PerfilOffCanvas from "./PerfilOffCanvas";
 
 
