@@ -4,7 +4,7 @@ import React,{Component} from "react";
 //Importar en cada archivo que se necesite
 import { Link } from "react-router-dom";
 import './App.css';
-import Navbar from "./Navbar";
+import Navbar from "./componentes/Navbar";
 import iCafe1 from "./images/mocha.png";
 import iTea from './images/shaken-black-tea.png';
 import iCafe2 from './images/cajeta-frappuccino.png';
@@ -14,7 +14,7 @@ import iSaludable from './images/Ensalada Cesar.png';
 import perfil from './images/usuario.png';
 import trash__ico from './images/trash-fill.svg';
 import edit__ico from './images/icons8-edit (1).svg';
-
+import Card from "./componentes/Card";
 
 
 function Main() {
@@ -185,51 +185,14 @@ function Main() {
                                     <h5 className="text-center" id="BebidasCalientes">Bebidas calientes</h5>
                                     <hr/>
                                     <div className="col-md-4">
-                                           
-                                        <div className="card card_Backgraund">                                          
-                                        <div className="card-body text-center">                                 
-                                        <img src={iCafe1} className="img__Cafe"></img>                                         
-                                        <h5 className="card-title">Mocha</h5>
-                                        <h6 className="card-subtitle mb-2 text-muted">$00.00</h6>
-                                        <p className="card-text">Nuestro característico espresso se combina con salsa de chocolate blanco, leche al vapor y crema batida.</p>
-                                            <div className="position-relative">
-                                                    <div className=" position-absolute end-0">
-                                                        <button className=" btn btn-danger btn__rounded">
-                                                        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" className="img__ico bi bi-trash-fill" viewBox="0 0 16 16">
-                                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                                                        </svg>    
-                                                        </button>
-                                                        <button className=" btn btn-dark btn__rounded"><img className="img__ico" src={edit__ico}></img></button>
-                                                    </div>                                          
-                                            </div> 
-
-                                        </div>
-                                        </div>                                    
+                                    <Card/>                                   
                                     </div>
 
                                     <div className="col-md-4">
-
-                                        <div className="card card_Backgraund">
-                                        <div className="card-body text-center">
-                                        <img src={iCafe1} className="img__Cafe"></img>
-                                        <h5 className="card-title">Mocha</h5>
-                                        <h6 className="card-subtitle mb-2 text-muted">$00.00</h6>
-                                        <p className="card-text">Nuestro característico espresso se combina con salsa de chocolate blanco, leche al vapor y crema batida.</p>
-                                        </div>
-                                        </div>
-
+                                    <Card/>
                                     </div>
                                     <div className="col-md-4">
-
-                                        <div className="card card_Backgraund">
-                                        <div className="card-body text-center">
-                                        <img src={iCafe1} className="img__Cafe"></img>
-                                        <h5 className="card-title">Mocha</h5>
-                                        <h6 className="card-subtitle mb-2 text-muted">$00.00</h6>
-                                        <p className="card-text">Nuestro característico espresso se combina con salsa de chocolate blanco, leche al vapor y crema batida.</p>
-                                        </div>
-                                        </div>
-
+                                    <Card/>
                                     </div>
                                 
                                 </div>
@@ -373,7 +336,7 @@ function Main() {
 export default Main;
 
 window.onscroll = function() {
-    console.log(window.scrollY);
+    //console.log(window.scrollY);
     if (window.scrollY >= 571){
       document.getElementById("space2").style.position = "fixed";
       document.getElementById("space2").style.top = "0%";

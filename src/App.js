@@ -12,6 +12,10 @@ import Admin from './Admin/index';
 let body = document.getElementsByTagName('body');
 // console.log("🚀 ~ file: App.js ~ line 12 ~ body", body)
 body[0].classList = "hold-transition sidebar-mini layout-fixed layout-navbar-fixed text-sm"
+/*Menu
+Ordenes
+Pedidos
+Administrativo*/
 
 function App() {
   return (
