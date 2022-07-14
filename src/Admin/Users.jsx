@@ -31,7 +31,7 @@ function Users(props) {
    return (
       <section>
          {/* <!-- Content Wrapper. Contenido de la pagina --> */}
-         <div className="content-wrapper text-sm">
+         <div className="content-wrapper">
             {/* {props.block("Cargala compa")} */}
             {/* {props.toast("success","Aaaajasss")} */}
             {/* <!-- Content Header (Encabezado en el contenido de la pagina) --> */}

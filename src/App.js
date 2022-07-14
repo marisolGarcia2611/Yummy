@@ -8,9 +8,9 @@ import Main from './Main';
 import Orden from './Orden';
 import Admin from './Admin/index';
 
-console.log("ajas");
+// console.log("ajas");
 let body = document.getElementsByTagName('body');
-console.log("🚀 ~ file: App.js ~ line 12 ~ body", body)
+// console.log("🚀 ~ file: App.js ~ line 12 ~ body", body)
 body[0].classList = "hold-transition sidebar-mini layout-fixed layout-navbar-fixed text-sm"
 
 function App() {
