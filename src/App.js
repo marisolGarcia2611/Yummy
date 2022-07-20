@@ -5,6 +5,8 @@ import LogIn from './LogIn';
 import SingUp from './SingUp';
 import Main from './Main';
 import Orden from './Orden';
+import Ordenes from './Ordenes';
+import Carrito from './Carrito';
 /*Menu
 Ordenes
 Pedidos
@@ -41,6 +43,21 @@ function App() {
         <section>
 
         <Orden/>
+        </section>
+      }>
+      </Route>
+      <Route exact path="/Carrito" element={
+        <section>
+
+        <Carrito/>
+        </section>
+      }>
+      </Route>
+
+      <Route exact path="/Ordenes" element={
+        <section>
+
+        <Ordenes/>
         </section>
       }>
       </Route>

@@ -18,7 +18,7 @@ function Sidebar() {
         
             <div>
                 <Search/>
-                  <div>
+                  <div className="contenedor-light">
                     <Tarject/>
                     <Tarject/>
                   </div>
