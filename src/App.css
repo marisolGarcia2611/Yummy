@@ -425,6 +425,11 @@ width: 16px;}
     border-radius: 100%;
     height: 25px;
   }
+
+  .btn__size{
+    width: 270px;
+    height: 50px;
+  }
   /* -------------------------------------------------SideBarDark----------------------------------------------*/
 
   .side__dark{
@@ -473,7 +478,7 @@ width: 16px;}
   width:7px;
 }
 
-.contenedor-dark::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+.contenedor-dark::-webkit-scrollbar-button:increment,.contenedor-dark::-webkit-scrollbar-button {
   display: none;
 } 
 
@@ -558,7 +563,7 @@ width: 16px;}
       width:7px;
     }
     
-    .contenedor-light::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    .contenedor-light::-webkit-scrollbar-button:increment,.contenedor-light::-webkit-scrollbar-button {
       display: none;
     } 
     
@@ -575,3 +580,8 @@ width: 16px;}
     .contenedor-light::-webkit-scrollbar-track {
       border-radius: 10px;  
     }
+
+/* -------------------------------------------------Carrito----------------------------------------------*/
+.space__cub{
+  padding-top: 80px;
+}

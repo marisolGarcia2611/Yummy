@@ -5,6 +5,7 @@ import React,{Component} from "react";
 import { Link } from "react-router-dom";
 import './App.css';
 import Navbar from "./componentes/Navbar";
+import TarjetaCarrito from "./componentes/TarjetaCarrito";
 
 
 
@@ -15,7 +16,7 @@ function Carrito() {
      return (
        <section>
            <Navbar/>
-           <h1>Carrito</h1>
+           <TarjetaCarrito/>
 
 
        </section>
