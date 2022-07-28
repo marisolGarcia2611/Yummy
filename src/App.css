@@ -324,8 +324,9 @@ body{
 .space__stuct{
   padding-top: 80px;
   padding-left:20px;
-  padding-bottom: 100px;
+  
 }
+
 .letters__struct{
   color: #47837E;
   font-size: 50px;
@@ -445,6 +446,10 @@ width: 16px;}
   width: 200px;
   height: 100px;
   padding-top: 35px;
+
+ }
+ .card__mesa{
+  height: 280px;
 
  }
 
@@ -582,6 +587,51 @@ width: 16px;}
     }
 
 /* -------------------------------------------------Carrito----------------------------------------------*/
-.space__cub{
-  padding-top: 80px;
+.bg__beige{
+  background-color: #EFE9CE;
 }
+.dimension__cub{
+  width: 80%;
+  height: 400px;
+  /* background-color: #EFE9CE; */
+}
+.position__space{
+ margin-top: 20px;
+ margin-bottom: 30px;
+ margin-left: 20px;
+}
+.position__space1{
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.space__content{
+  width: 800px;
+  margin-bottom: 50px;
+
+}
+
+.letters___green{
+  color: #073430;
+}
+.rounded__btn{
+  border-radius: 50px;
+}
+
+
+/* -------------------------------------------------Card carrito---------------------------------------------*/
+.margin__card{
+  margin-bottom:10px;
+}
+
+.btn__rounded1{
+  border-radius: 50px;
+  padding-right: 35px;
+  height: 47px;
+  width: 40px;
+  margin-left: 40px;
+  -webkit-transition: all 0.1s ease;
+  transition: all 0.1s ease;  
+   }
+   .bg__green{
+    background-color: #073430;
+  }

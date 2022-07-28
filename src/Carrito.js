@@ -16,7 +16,20 @@ function Carrito() {
      return (
        <section>
            <Navbar/>
-           <TarjetaCarrito/>
+           <div className="row position__space">
+            <h3 className="letters__struct2">CARRITO DE </h3>
+            <h1 className="letters__struct">Compras</h1>
+           </div>
+           <div className="row">
+              <div className="col-md-2"> 
+
+              </div>
+              <div className=" col-md-10 position__taject">
+              <TarjetaCarrito/>
+              </div>
+           </div>
+           
+           
 
 
        </section>

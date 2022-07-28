@@ -34,7 +34,7 @@ function OrdenesPorMesa() {
 
         
         <div className="collapse" id="collapseExample">
-        <div className="card card-body">
+        <div className="card card__mesa card-body">
           <div className="contenedor">
              <DescripcionOrdenes/>
           </div>
