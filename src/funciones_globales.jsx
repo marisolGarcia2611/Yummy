@@ -45,6 +45,21 @@ function focusSelect2(select2) {
 
 
 /* --- FUNCIONES DE CAJON--- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function peticionRegistrarEditar(url,datos,funcion_success) {
    $.ajax({
       type: "POST",

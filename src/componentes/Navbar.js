@@ -17,19 +17,18 @@ function Navbar() {
        <nav className="navbar navbar-expand-lg navbar-light nav__backgraund">
         <div className="container-fluid position-relative">
             <Link to="/Main" className="navbar-brand active text-light">Menú</Link>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div className="navbar-nav">
+            <div className="navbar-nav me-auto mb-2 mb-lg-0">
                 <Link to="/Orden" className="nav-link text-light" aria-current="page">Ordenar</Link>
-            <div className="position-absolute top-0 start-50 translate-middle-x">
-            <img src={logo} className="image__logo d-none d-md-block" alt="logo"/>
-            </div>
+                <Link to="/Carrito" className="nav-link text-light" aria-current="page">Carrito</Link>
+                <Link to="/Ordenes" className="nav-link text-light" aria-current="page">Ordenes</Link>
+                <div className="position-absolute top-0 start-50 translate-middle-x">
+                <img src={logo} className="image__logo d-none d-md-block" alt="logo"/>
+                </div>
             <div className="position-absolute end-0"><PerfilOffCanvas/></div>
-                {/* <Link to="/" className=" nav-link text-light position-absolute end-0" aria-current="page">
-                <img src={perfil} className="img__Perfil " alt="perfil"/>
-                </Link> */}
             </div>
             </div>
         </div>

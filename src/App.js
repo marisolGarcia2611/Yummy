@@ -13,6 +13,8 @@ let body = document.getElementsByTagName('body');
 
 // console.log("🚀 ~ file: App.js ~ line 12 ~ body", body)
 body[0].classList = "hold-transition sidebar-mini layout-fixed layout-navbar-fixed text-sm"
+import Ordenes from './Ordenes';
+import Carrito from './Carrito';
 /*Menu
 Ordenes
 Pedidos
@@ -49,6 +51,21 @@ function App() {
         <section>
 
         <Orden/>
+        </section>
+      }>
+      </Route>
+      <Route exact path="/Carrito" element={
+        <section>
+
+        <Carrito/>
+        </section>
+      }>
+      </Route>
+
+      <Route exact path="/Ordenes" element={
+        <section>
+
+        <Ordenes/>
         </section>
       }>
       </Route>

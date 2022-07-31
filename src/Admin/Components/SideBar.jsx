@@ -2,7 +2,7 @@ import React, {Component} from "react";
 // Se importa Link de react router dom, que es el que hara la funcion
 // de lals etiquetas <a>, hara referencias a las rutas especficadas en App.js
 // Importar en cada archivo que se necesite
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 // import '../../App.css';
 import logo from '../../images/yummy.svg';
 import perfil from '../../images/usuario.png';
@@ -44,6 +44,10 @@ function SideBar() {
                                  </a>
                            </li>
                            <li className="nav-item">
+                              <NavLink to="/Users">
+                                 <i className="far fa-circle nav-icon text-sm"></i>
+                                 <p>Productos</p>
+                              </NavLink>
                                  <a href="<?php echo($ADMIN_PATH)?>/customers.php" className="nav-link">
                                     <i className="far fa-circle nav-icon text-sm"></i>
                                     <p>Productos</p>
