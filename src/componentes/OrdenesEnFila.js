@@ -36,6 +36,10 @@ function OrdenesEnFila() {
                     <td>@mdo</td>
                     </tr>
 
+                    <div>
+                      <br/>
+                      <button className="btn btn-dark rounded__btn">Orden Finalizada</button>
+                    </div>
                 </tbody>
                 </table>
 
