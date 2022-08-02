@@ -42,7 +42,7 @@ function Navbar() {
             <div className="position-absolute top-0 start-50 translate-middle-x">
             <img src={logo} className="image__logo d-none d-md-block" alt="logo"/>
             </div>
-                <Link onClick={cerrarSesion} to="/" className=" nav-link text-light position-absolute end-0" aria-current="page">
+                <Link  to="/" className=" nav-link text-light position-absolute end-0" aria-current="page">
                 <img src={perfil} className="img__Perfil " alt="perfil"/>
                 </Link>
             </div>

@@ -1,7 +1,8 @@
-import React,{Component,useState} from "react";
+import React,{useEffect,useState} from "react";
 //Se importa Link de react router dom, que es el que hara la funcion
 //de lals etiquetas <a>, hara referencias a las rutas especficadas en App.js
 //Importar en cada archivo que se necesite
+import axios from 'axios'
 import { Link } from "react-router-dom";
 import './App.css';
 // import Navbar from "./Navbar";
@@ -16,11 +17,35 @@ import trash__ico from './images/trash-fill.svg';
 import edit__ico from './images/icons8-edit (1).svg';
 import Cookies from "universal-cookie";
 import BlockUI from "./Componentes/BlockUI/BlockUI";
-
-
-
+import Card from "./Componentes/Card";
+import NavCategories from "./componentes_main/NavCategories";
+import SideBar from "./componentes_main/SideBar";
+import ContenidoMain from "./componentes_main/ContenidoMain";
+const cookies = new Cookies()
 function Main() {
     const [block, setBlock] = useState(false)
+
+
+    const [categorias, setCategorias] = useState([])
+    useEffect(() => {
+        const getCategories = async () => {
+            return await axios.get("http://127.0.0.1:8000/api/categories", {
+                headers: { Authorization: `Bearer ${cookies.get("Authorization")}` }
+            }).catch(response => {
+                let { message } = response.response.data.errors
+
+                throw new Error(message[0])
+            })
+        }
+        getCategories().then((data) => {
+            setCategorias(data.data.data)
+            console.log(data.data.data)
+        })
+    }, []);
+
+    // console.log('items: ', items)
+
+
     return (
        <section>
                 <BlockUI blocking={block}/>
@@ -30,79 +55,13 @@ function Main() {
 
             <div className="position-relative">
 
-            <nav id="nav1" className="navbar start-50 translate-middle-x navb px-3  ">
-                <ul className="nav nav-pills">
-                    <li className="nav-item">
-                    <a className="nav-link link-secondary" href="#scrollspyHeading1">Bebidas</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link link-secondary" href="#scrollspyHeading2">Alimentos</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link link-secondary" href="#scrollspyHeading3">Postres</a>
-                    </li>
-                </ul>
-            </nav>
+            <NavCategories items={categorias} />
                 <div className="spacius"></div>
                 <div className="row">
                     <div id="spacephantom" className="col-md-2 spacephantom">
 
                     </div>
-                    <div id="space2" className="col-md-2 d-none d-md-block space2">
-                        
-                        <h5>Categorias</h5> 
-
-                        <div className="accordion accordion-flush" id="accordionFlushExample">
-                        <div className="accordion-item">
-                            <h2 className="accordion-header" id="flush-headingOne">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                               <h6>Bebidas</h6> 
-                            </button>
-                            </h2>
-                            <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                                <div className="accordion-body">
-                                <a className="nav-link link-secondary" href="#BebidasCalientes">Bebidas calientes</a>
-                                <a className="nav-link link-secondary" href="#BebidasFrias">Bebidas Frias</a>
-                                <a className="nav-link link-secondary" href="#BebidasBaseTe">Bebidas Base Té </a> 
-                                </div>
-                            </div>
-                        </div>
-                        <div className="accordion-item">
-                            <h2 className="accordion-header" id="flush-headingTwo">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-                                <h6>Aliementos</h6> 
-                            </button>
-                            </h2>
-                            <div id="flush-collapseTwo" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                                <div className="accordion-body">
-                                     <a className="nav-link link-secondary" href="#Salado">Salado</a>
-                                     <a className="nav-link link-secondary" href="#SaladoRecienHorneado">Salado Recién Horneado</a>
-                                     <a className="nav-link link-secondary" href="#Saludable">Saludable</a>
-                                 </div>
-                            </div>
-                        </div>
-                        <div className="accordion-item">
-                            <h2 className="accordion-header" id="flush-headingThree">
-                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-                                 <h6>Postres</h6> 
-                            </button>
-                            </h2>
-                            <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-                            <div className="accordion-body">
-                                  <p>Bebidas calientes</p>
-                                  <p>Bebidas frias</p>
-                                  <p>Bebidas base té</p>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
-                    
-                        <div>
-                         <button type="button" data-bs-toggle="modal" data-bs-target="#addModal" className=" card btn btn-warning text-center">
-                             <b>+ Añadir producto</b>
-                             </button>
-                        </div> 
-                    </div>
+                   <SideBar/>
                   
 
 
@@ -182,6 +141,8 @@ function Main() {
                     <div className="col-md-9">  
                                
                         <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" className="scrollspy-example" tabIndex="0">
+                        <ContenidoMain items={categorias}/>
+                        {/* <section>
                             <h1 id="scrollspyHeading1">Bebidas</h1>
                             <div className="space1">
                                 <div className="row">
@@ -189,51 +150,14 @@ function Main() {
                                     <h5 className="text-center" id="BebidasCalientes">Bebidas calientes</h5>
                                     <hr/>
                                     <div className="col-md-4">
-                                           
-                                        <div className="card card_Backgraund">                                          
-                                        <div className="card-body text-center">                                 
-                                        <img src={iCafe1} className="img__Cafe"></img>                                         
-                                        <h5 className="card-title">Mocha</h5>
-                                        <h6 className="card-subtitle mb-2 text-muted">$00.00</h6>
-                                        <p className="card-text">Nuestro característico espresso se combina con salsa de chocolate blanco, leche al vapor y crema batida.</p>
-                                            <div className="position-relative">
-                                                    <div className=" position-absolute end-0">
-                                                        <button className=" btn btn-danger btn__rounded">
-                                                        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" className="img__ico bi bi-trash-fill" viewBox="0 0 16 16">
-                                                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                                                        </svg>    
-                                                        </button>
-                                                        <button className=" btn btn-dark btn__rounded"><img className="img__ico" src={edit__ico}></img></button>
-                                                    </div>                                          
-                                            </div> 
-
-                                        </div>
-                                        </div>                                    
+                                    <Card/>                                   
                                     </div>
 
                                     <div className="col-md-4">
-
-                                        <div className="card card_Backgraund">
-                                        <div className="card-body text-center">
-                                        <img src={iCafe1} className="img__Cafe"></img>
-                                        <h5 className="card-title">Mocha</h5>
-                                        <h6 className="card-subtitle mb-2 text-muted">$00.00</h6>
-                                        <p className="card-text">Nuestro característico espresso se combina con salsa de chocolate blanco, leche al vapor y crema batida.</p>
-                                        </div>
-                                        </div>
-
+                                    <Card/>
                                     </div>
                                     <div className="col-md-4">
-
-                                        <div className="card card_Backgraund">
-                                        <div className="card-body text-center">
-                                        <img src={iCafe1} className="img__Cafe"></img>
-                                        <h5 className="card-title">Mocha</h5>
-                                        <h6 className="card-subtitle mb-2 text-muted">$00.00</h6>
-                                        <p className="card-text">Nuestro característico espresso se combina con salsa de chocolate blanco, leche al vapor y crema batida.</p>
-                                        </div>
-                                        </div>
-
+                                    <Card/>
                                     </div>
                                 
                                 </div>
@@ -320,6 +244,7 @@ function Main() {
                                     </div>
                                 
                                 </div>
+
                                 <div className="row">
                                 <hr/>
                                 <h5 className="text-center" id="SaladoRecienHorneado">Salado Recién Horneado</h5>
@@ -362,6 +287,7 @@ function Main() {
                           
                             <h1 id="scrollspyHeading3">Postres</h1>
                            
+                        </section> */}
                         </div> 
                     </div>
                 </div>

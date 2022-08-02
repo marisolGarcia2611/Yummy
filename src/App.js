@@ -5,12 +5,13 @@ import LogIn from './LogIn';
 import SingUp from './SingUp';
 import Main from './Main';
 import Orden from './Orden';
-import Navbar from './Navbar'
+import Navbar from './Componentes/Navbar'
+import Ordenes from './Ordenes';
+import Carrito from './Carrito';
 import { ProtectedRoute } from './Componentes/ProtectedRoute';
 import { AuthProvider } from './context/authContext'
 function App() {
   return (
-
     <AuthProvider>
       <Routes>
         <Route index path="/" element={
@@ -39,6 +40,32 @@ function App() {
           </ProtectedRoute>
         }>
         </Route>
+
+
+        <Route exact path="/Carrito" element={
+          <ProtectedRoute>
+
+            <section>
+
+              <Carrito />
+            </section>
+          </ProtectedRoute>
+        }>
+        </Route>
+
+        <Route exact path="/Ordenes" element={
+          <ProtectedRoute>
+
+            <section>
+
+              <Ordenes />
+            </section>
+          </ProtectedRoute>
+        }>
+        </Route>
+
+
+
       </Routes>
     </AuthProvider>
   );
