@@ -24,12 +24,16 @@ import perfil from '../images/usuario.png';
 import HeaderPage from "./Components/HeaderPage";
 import Table from "./Components/Table";
 import Form from "./Components/forms";
+import NavBar from "./Components/NavBar";
+import SideBar from "./Components/SideBar";
+import Admin from ".";
 
 const current_page = "Usuarios";
 
 function Users(props) {
    return (
       <section>
+         <Admin/>
          {/* <!-- Content Wrapper. Contenido de la pagina --> */}
          <div className="content-wrapper">
             {/* {props.block("Cargala compa")} */}

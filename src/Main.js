@@ -16,7 +16,7 @@ import trash__ico from './images/trash-fill.svg';
 import edit__ico from './images/icons8-edit (1).svg';
 import Card from "./componentes/Card";
 import Cookies from "universal-cookie";
-import BlockUI from "./Componentes/BlockUI/BlockUI";
+import BlockUI from "./componentes/BlockUI/BlockUI";
 
 
 

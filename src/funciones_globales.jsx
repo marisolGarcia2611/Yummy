@@ -2,6 +2,9 @@
 // 'use strict';
 // $(document).ready(() => {
 
+import axios from "axios";
+import BlockUI from "./componentes/BlockUI/BlockUI";
+
 // });
 
 //#region RUTAS AL APP DE LOS MODELOS
@@ -45,7 +48,29 @@ function focusSelect2(select2) {
 
 
 /* --- FUNCIONES DE CAJON--- */
-
+export function Request(...props) {
+   // BlockUI
+   const request = async () => {
+      await axios({
+         method: props.method,
+         url: props.url,
+         headers: {'Authorization': `Bearer ${props.token}`},
+         data: props.data,
+         type: props.type
+      })
+      .then (axiosResponse => {
+         let dataResponse = axiosResponse.response.data
+         mostrarToast("success", dataResponse)
+      })
+      .catch (axiosResponse => {
+         let { message } = axiosResponse.response.data.errors
+         mostrarToast("Error", message[0])
+      })
+      .then (axiosResponse => { //el Finally
+         mostrarToast("success", "FIN")
+      })
+   }
+}
 
 
 

@@ -6,7 +6,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './App.css';
 import logo from './images/yummy-dark.svg';
-import BlockUI from "./Componentes/BlockUI/BlockUI"
+import BlockUI from "./componentes/BlockUI/BlockUI"
 import { useAuth } from "./context/authContext";
 import Cookies from "universal-cookie";
 import Swal from "sweetalert2";

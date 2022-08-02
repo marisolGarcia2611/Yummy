@@ -9,12 +9,13 @@ import SideBar from "./Components/SideBar";
 import Users from "./Users";
 import { mostrarBlockOutCargando, mostrarToast } from "../funciones_globales"
 
-function Admin() {
+function Admin(props) {
    return (
       <section>
          <NavBar/>
          <SideBar/>
-         <Users toast={mostrarToast} block={mostrarBlockOutCargando}/>
+         {props.component}
+         {/* <Users toast={mostrarToast} block={mostrarBlockOutCargando}/> */}
       </section>
    )
 }

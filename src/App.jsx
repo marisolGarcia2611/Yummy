@@ -2,7 +2,6 @@ import "./App.css";
 //Se importa BrowsrRouter, Route y Routes
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ReactDOM from "react-dom/client";
-import { Route, Routes } from "react-router-dom";
 import LogIn from "./LogIn";
 import SingUp from "./SingUp";
 import Main from "./Main";
@@ -18,8 +17,9 @@ body[0].classList =
 import Ordenes from "./Ordenes";
 import Carrito from "./Carrito";
 import Navbar from "./Navbar";
-import { ProtectedRoute } from "./Componentes/ProtectedRoute";
+import { ProtectedRoute } from "./componentes/ProtectedRoute";
 import { AuthProvider } from "./context/authContext";
+import Users from "./Admin/Users";
 /*Menu
 Ordenes
 Pedidos
@@ -43,12 +43,14 @@ function App() {
           exact
           path="/Main"
           element={
-            <ProtectedRoute>
-              <Navbar />
-              <section>
-                <Main />
-              </section>
-            </ProtectedRoute>
+            <section>
+              <ProtectedRoute>
+                <Navbar />
+                <section>
+                  <Main />
+                </section>
+              </ProtectedRoute>
+            </section>
           }
         ></Route>
         <Route
@@ -99,6 +101,18 @@ function App() {
             // {/* <!-- Site wrapper --> */}
             <div className="wrapper">
               <Admin />
+            </div>
+          }
+        ></Route>
+
+        <Route
+          exact
+          path="/Admin/Users"
+          element={
+            // <section className="App-header">
+            // {/* <!-- Site wrapper --> */}
+            <div className="wrapper">
+              <Users />
             </div>
           }
         ></Route>
