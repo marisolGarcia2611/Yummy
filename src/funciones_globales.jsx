@@ -48,18 +48,23 @@ function focusSelect2(select2) {
 
 
 /* --- FUNCIONES DE CAJON--- */
-export function Request(...props) {
+export async function Request(...props) {
+   console.log("🚀 ~ file: funciones_globales.jsx ~ line 52 ~ Request ~ props", props)
    // BlockUI
-   const request = async () => {
+   
+   // const request = async () => {
+      console.log("ahora los props");
+      console.log(props);
       await axios({
          method: props.method,
          url: props.url,
-         headers: {'Authorization': `Bearer ${props.token}`},
+         // headers: {'Authorization': `Bearer ${props.token}`},
          data: props.data,
          type: props.type
       })
       .then (axiosResponse => {
-         let dataResponse = axiosResponse.response.data
+         console.log("jkhadklhsajkdsa");
+         let dataResponse = axiosResponse.response
          mostrarToast("success", dataResponse)
       })
       .catch (axiosResponse => {
@@ -69,7 +74,7 @@ export function Request(...props) {
       .then (axiosResponse => { //el Finally
          mostrarToast("success", "FIN")
       })
-   }
+   // }
 }
 
 

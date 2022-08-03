@@ -1,9 +1,10 @@
 import { useContext, useEffect } from "react"
 import { createContext, useState } from "react"
 import Swal from "sweetalert2";
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 export const authContext = createContext()
 import Cookies from "universal-cookie";
+import { mostrarToast, Request } from "../funciones_globales";
 const cookies = new Cookies()
 
 export const useCredenciales = () => {
@@ -29,6 +30,36 @@ export function AuthProvider({ children }) {
     useEffect(() => {
         if (loged) console.log("cambio estado",loged)
     }, [loged]);
+
+    // const props = {
+    //     method: "POST",
+    //     url:"http://127.0.0.1:8000/api/login",
+    //     data: credenciales
+    // }
+    // const login = Request(props)
+
+    
+    // const login = async (credenciales) => {
+    //     return await axios({
+    //         method: "POST",
+    //         url: "http://127.0.0.1:8000/api/login",
+    //         data: credenciales
+    //     })
+    //     // .then (axiosResponse => {
+    //     //     console.log("jkhadklhsajkdsa");
+    //     //     console.log(axiosResponse);
+    //     //     // let dataResponse = axiosResponse.response
+    //     //     // mostrarToast("success", dataResponse)
+    //     //  })
+    //     .catch(response => {
+    //         console.log(response);
+    //         let { message } = response.response.errors
+            
+    //         throw new Error(message[0])
+    //     })
+    // }
+
+
 
     const login = async (credenciales) => {
         return await axios.post("http://127.0.0.1:8000/api/login", credenciales)
