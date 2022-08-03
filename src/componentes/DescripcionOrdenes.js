@@ -9,12 +9,13 @@ function DescripcionOrdenes() {
                 <table className="table">
                 <thead>
                     <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Cantidad</th>
                     <th scope="col">Producto</th>
                     <th scope="col">Tamaño</th>
                     <th scope="col">Leche</th>
                     <th scope="col">Complementos</th>
                     <th scope="col">Nombre del vaso</th>
+                    <th scope="col">Estado</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,10 +26,8 @@ function DescripcionOrdenes() {
                     <td>@mdo</td>
                     <td>@mdo</td>
                     <td>@mdo</td>
-                    </tr>
-                   
-                  
-                   
+                    <td><input className="form-check-input" type="checkbox" value="" id="flexCheckChecked" /></td>
+                    </tr>          
                 </tbody>
                 </table>
 
