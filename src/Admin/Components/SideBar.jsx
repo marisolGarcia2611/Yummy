@@ -47,7 +47,13 @@ function SideBar() {
                   <NavLink to="/Admin/Users" className="nav-link">
                      <li className="nav-item">
                         <i className="far fa-circle nav-icon text-sm"></i>
-                        <p>Usuarios AJAS</p>
+                        <p>Usuarios</p>
+                     </li>
+                  </NavLink>
+                  <NavLink to="/Admin/Pruebas" className="nav-link">
+                     <li className="nav-item">
+                        <i className="far fa-circle nav-icon text-sm"></i>
+                        <p>Pruebas</p>
                      </li>
                   </NavLink>
                 </ul>

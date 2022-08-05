@@ -20,6 +20,7 @@ import Navbar from "./Navbar";
 import { ProtectedRoute } from "./componentes/ProtectedRoute";
 import { AuthProvider } from "./context/authContext";
 import Users from "./Admin/Users";
+import Pruebas from "./Admin/pruebas";
 /*Menu
 Ordenes
 Pedidos
@@ -113,6 +114,17 @@ function App() {
             // {/* <!-- Site wrapper --> */}
             <div className="wrapper">
               <Users />
+            </div>
+          }
+        ></Route>
+        <Route
+          exact
+          path="/Admin/Pruebas"
+          element={
+            // <section className="App-header">
+            // {/* <!-- Site wrapper --> */}
+            <div className="wrapper">
+              {/* <Pruebas /> */}
             </div>
           }
         ></Route>

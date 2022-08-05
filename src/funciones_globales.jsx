@@ -287,7 +287,7 @@ function peticionEliminarObjeto(titulo,texto,url,datos) {
    });
 }
 
-function mostrarToast(icono, mensaje, posicion) {
+export function mostrarToast(icono, mensaje, posicion) {
    if (posicion == null) {posicion = 'top-end'}
    const Toast = Swal.mixin({
       toast: true,
@@ -303,7 +303,7 @@ function mostrarToast(icono, mensaje, posicion) {
 
    Toast.fire({icon: icono, title: mensaje})
 }
-function mostrarBlockOutCargando(title) {
+export function mostrarBlockOutCargando(title) {
    if (title == null) {title= 'Cargando...'}
    Swal.fire({
       title: title,
@@ -316,7 +316,7 @@ function mostrarBlockOutCargando(title) {
       }
    })
 }
-function mostrarBlockOutListo() {
+export function mostrarBlockOutListo() {
    Swal.fire({
       title: "LISTO!",
       timer: 500,
@@ -620,4 +620,4 @@ function keyInicia(){
  }
 
 
-export {mostrarToast, mostrarBlockOutCargando}
+// export {mostrarToast, mostrarBlockOutCargando}
