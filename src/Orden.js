@@ -9,6 +9,7 @@ import logo from './yummy-dark.svg';
 import iCafe1 from "./images/mocha.png";
 import DiseñoCafe from "./componentes/DiseñoCafe";
 import Sidebar from "./componentes/Sidebar";
+import TarjetaNombre from "./componentes/TarjetaNombre";
 
 
 
@@ -22,12 +23,13 @@ function Orden() {
             <div className="row">
               
               {/* SIDEBAR */}
-              <div className="col-md-3 b-yellow">
+              <div className="col-md-4 side-yellow">
               <Sidebar/>
               </div>
+              <div className="col-md-4"></div>
               
               {/*DISEÑO DE CAFE*/}
-              <div className="space__stuct col-md-9">
+              <div className="space__stuct col-md-8">
                 <h3 className="letters__struct2">BEBIDA CALIENTE</h3>
                 <h1 className="letters__struct">Mocha</h1>
                   <br/>
@@ -108,22 +110,22 @@ function Orden() {
                     
 
                     <div className="row text-center">
-                      <div className="btn tarject__btn col-md-2">                          
+                      <div className="btn tarject__btn col-md-3">                          
                          <p className="fw-light lt"><b className="fw-bold">CHOCOLATE</b><br/>$00.00</p>
 
                       </div>
 
-                      <div className="btn tarject__btn col-md-2">
+                      <div className="btn tarject__btn col-md-3">
                       <p className="fw-light lt"><b className="fw-bold">MALVADISCO</b><br/>$00.00</p>
 
                       </div>
 
-                      <div className="btn tarject__btn col-md-2">
+                      <div className="btn tarject__btn col-md-3">
                       <p className="fw-light lt"><b className="fw-bold">GRANOLA</b><br/>$00.00</p>
 
                       </div>
 
-                      <div className="btn tarject__btn col-md-2">
+                      <div className="btn tarject__btn col-md-3">
                       <p className="fw-light lt"><b className="fw-bold">FRESA</b><br/>$00.00</p>
 
                       </div>
@@ -141,27 +143,9 @@ function Orden() {
                     </div>
                     
 
-                    <div className="row text-center">
-                      <div className="btn tarject__btn col-md-10">   
-                          <p className="text-start fw-light">Personaliza tu vaso con tu nombre</p>
-                          <div className="row">
-                            <div className="col-md-10">
-                            <input className="form-control inp" type="text"  placeholder="name" name="name"/>
-                            </div>
-                            <div className="col-md-2">
-                            <button className="btn btn__struct">
-                            <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" className="ic1 bi bi-dash-circle" viewBox="0 0 16 16">
-                              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                              <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
-                            </svg>
-                            {/* <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" className="ic1 bi bi-plus-circle" viewBox="0 0 16 16">
-                              <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
-                            </svg> */}
-                            </button>
-                            </div>                         
-                          </div>                       
-                          
+                    <div className="row">
+                      <div className="col-md-12">   
+                         <TarjetaNombre/>                 
                       </div>
                     </div>
                     
@@ -171,10 +155,6 @@ function Orden() {
 
                   <div className="col-md-4">
                     <DiseñoCafe/>
-
-
-
-
                   </div>
 
                 </div>

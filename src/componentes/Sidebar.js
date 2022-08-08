@@ -21,6 +21,14 @@ function Sidebar() {
                   <div className="contenedor-light">
                     <Tarject/>
                     <Tarject/>
+                    <Tarject/>
+                    <Tarject/>
+                    <Tarject/>
+                    <Tarject/>
+                    <Tarject/>
+                    <Tarject/>
+                    <Tarject/>
+                    <Tarject/>
                   </div>
             </div>
                 

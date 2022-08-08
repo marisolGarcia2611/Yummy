@@ -5,15 +5,11 @@ import React,{Component} from "react";
 import { Link } from "react-router-dom";
 import './App.css';
 import Navbar from "./componentes/Navbar";
-import iCafe1 from "./images/mocha.png";
 import iTea from './images/shaken-black-tea.png';
 import iCafe2 from './images/cajeta-frappuccino.png';
 import iSalado from './images/Sandwich Pavo Panela.png';
 import iSaladoH from './images/Grilled Cheese Sandwich.png';
 import iSaludable from './images/Ensalada Cesar.png';
-import perfil from './images/usuario.png';
-import trash__ico from './images/trash-fill.svg';
-import edit__ico from './images/icons8-edit (1).svg';
 import Card from "./componentes/Card";
 
 
