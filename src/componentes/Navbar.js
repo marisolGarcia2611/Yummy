@@ -8,6 +8,7 @@ import logo from '../images/yummy.svg';
 import perfil from '../images/usuario.png';
 import PerfilOffCanvas from "./PerfilOffCanvas";
 import { NavLink, useNavigate } from "react-router-dom";
+import { AuthProvider } from "../context/authContext";
 
 
 
@@ -28,7 +29,10 @@ function Navbar() {
                 <div className="position-absolute top-0 start-50 translate-middle-x">
                 <img src={logo} className="image__logo d-none d-md-block" alt="logo"/>
                 </div>
-            <div className="position-absolute end-0"><PerfilOffCanvas/></div>
+            <div className="position-absolute end-0">
+
+              {/* <PerfilOffCanvas/> */}
+              </div>
             </div>
             </div>
         </div>
