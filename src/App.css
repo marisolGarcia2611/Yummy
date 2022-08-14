@@ -252,9 +252,13 @@ body{
   }
 }
 
-.b-yellow{
-  background-color: #fbffca;
+.side-yellow{
+  background-color: #f6fe95;
+  background-image: linear-gradient(0deg, #ffffff 0%, #f6fe95 100%);
+  padding: 30px;
+  position: absolute;
   height:100%;
+
 }
 .b-opac{
   background-color: #194a6b;
@@ -304,7 +308,7 @@ body{
 
   }
   .pos{
-    margin-left:-50px;
+    margin-left:-70px;
   }
   .pos__search{
     margin: 10px;
@@ -349,11 +353,63 @@ body{
 .space__stuct1{
   padding:20px;
 }
+/*---------------------------------------------------------------- Btn outline sendary para las tarjetas----------------------------------------------------------- */
+.btn-outline,
+.btn-outline:hover {
+  background-color: #4b8d88;
+  color: rgb(255, 255, 255);
+}
+
+.btn-outline {
+  border-radius:20px;
+  background-color: #f1f4f3;
+  color: rgb(93, 93, 93);
+}
+
+.btn-outline:hover {
+  box-shadow: inset 0 0 0 20rem var(--darken-1);
+  background-color: #4b8d88;
+  color: rgb(255, 255, 255);
+}
+
+.btn-outline:active {
+  box-shadow: inset 0 0 0 20rem var(--darken-2),
+    inset 0 3px 4px 0 var(--darken-3),
+    0 0 1px var(--darken-2);
+    background-color: #4b8d88;
+  color: rgb(255, 255, 255);
+}
+
+.btn-outline:disabled,
+.btn-outline.is-disabled {
+  opacity: .1;
+}
+
+.btn__outlineMenta, .btn-outline-secondary {
+  background-color: #f1f4f3;
+  color: rgb(93, 93, 93);
+  transition: .4s;
+  border-radius:20px;
+  padding: 15px;
+  padding-right: 50px;
+  padding-left: 30px;
+  margin: 5px;
+  
+}
+.btn__outlineMenta,.btn-outline-secondary:hover {
+  background-color: #4b8d88;
+  color: rgb(255, 255, 255);
+}
+/*---------------------------------------------------------------- Btn outline sendary para las tarjetas----------------------------------------------------------- */
+
 .tarject__btn{
   background-color: #f1f4f3;
   color: rgb(93, 93, 93);
   transition: .4s;
   border-radius:20px;
+  padding: 15px;
+  padding-right: 50px;
+  padding-left: 30px;
   margin: 5px;
   
 }
@@ -361,6 +417,32 @@ body{
   background-color: #4b8d88;
   color: rgb(255, 255, 255);
 }
+
+.t__btn{
+  background-color: #f1f4f3;
+  color: rgb(93, 93, 93);
+  transition: .4s;
+  border-radius:20px;
+  padding: 15px;
+  padding-left:30px;
+  padding-right:30px;
+}
+.t__btn:hover {
+  background-color: #4b8d88;
+  color: rgb(255, 255, 255);
+}
+
+.t__space{
+  margin-left: 5px;
+}
+.t__space2{
+  margin-left: 20px;
+}
+.t__space3{
+  margin-left: 70px;
+}
+
+
 .btn__struct{
   margin-top:-5px;
 }
@@ -428,15 +510,19 @@ width: 16px;}
   }
 
   .btn__size{
-    width: 270px;
+    width: 230px;
     height: 50px;
   }
   /* -------------------------------------------------SideBarDark----------------------------------------------*/
 
   .side__dark{
     background: #191b1f;
-    height:100%;
     padding: 30px;
+    /* position: fixed; */
+    position: absolute;
+    height:100%;
+
+ 
 
   }
 
@@ -553,7 +639,7 @@ width: 16px;}
 
     .contenedor-light{
       margin: 2rem auto;
-      height: 900px;
+      height: 940px;
       overflow-y: scroll;
       box-sizing: border-box;
       padding:0 1rem;
@@ -574,13 +660,13 @@ width: 16px;}
     } 
     
     .contenedor-light::-webkit-scrollbar:horizontal {
-      height: 10px;
+      height: 5px;
     }
     
     .contenedor-light::-webkit-scrollbar-thumb {
-      background-color: #818181;
+      background-color: #a09f9f;
       border-radius: 20px;
-      border: 1px solid #aaa9a9;
+      border: 1px solid #a5a5a5;
     }
     
     .contenedor-light::-webkit-scrollbar-track {
@@ -614,7 +700,7 @@ width: 16px;}
 .letters___green{
   color: #073430;
 }
-.rounded__btn{
+rounde.d__btn{
   border-radius: 50px;
 }
 
@@ -640,4 +726,23 @@ width: 16px;}
   /* -------------------------------------------------Usuario---------------------------------------------*/
   rounded__user{
     border-radius: 50%;
+  }
+
+  /* -----------------------------------------------Orden En espera---------------------------------------------*/
+
+  .bg__degrade{
+    background-color: #85FFBD;
+    background-image: linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%);
+    width: 100%;
+    height: 100%;
+
+  }
+
+  .img__form{
+    width: 500px;
+    height: 500px;
+  }
+
+  .btn__adm{
+    margin: 10px;
   }

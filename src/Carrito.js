@@ -8,10 +8,6 @@ import Navbar from "./componentes/Navbar";
 import TarjetaCarrito from "./componentes/TarjetaCarrito";
 
 
-
-
-
-
 function Carrito() {
      return (
        <section>

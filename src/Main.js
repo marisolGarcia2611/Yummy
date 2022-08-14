@@ -5,21 +5,16 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios'
 import { Link } from "react-router-dom";
 import './App.css';
+import Navbar from "./componentes/Navbar";
 import iCafe1 from "./images/mocha.png";
 import iTea from './images/shaken-black-tea.png';
 import iCafe2 from './images/cajeta-frappuccino.png';
 import iSalado from './images/Sandwich Pavo Panela.png';
 import iSaladoH from './images/Grilled Cheese Sandwich.png';
 import iSaludable from './images/Ensalada Cesar.png';
-import perfil from './images/usuario.png';
-import trash__ico from './images/trash-fill.svg';
-import edit__ico from './images/icons8-edit (1).svg';
 import Card from "./componentes/Card";
+import NavCategories from "./componentes_main/NavCategories"
 import Cookies from "universal-cookie";
-import BlockUI from "./componentes/BlockUI/BlockUI";
-import NavCategories from "./componentes_main/NavCategories";
-import SideBar from "./componentes_main/SideBar";
-import ContenidoMain from "./componentes_main/ContenidoMain";
 const cookies = new Cookies()
 function Main() {
     const [block, setBlock] = useState(false)
@@ -41,15 +36,11 @@ function Main() {
         })
     }, []);
 console.log(categorias)
-    // console.log('items: ', items)
-
-
-    return (
-        <section>
-            <BlockUI blocking={block} />
-            {/* <Navbar/> */}
-            <div className="image__nav">
-            </div>
+     return (
+       <section>
+           {/* <Navbar/> */}
+           <div className="image__nav">
+           </div>
 
             <div className="position-relative">
 
@@ -61,8 +52,7 @@ console.log(categorias)
                     <div id="spacephantom" className="col-md-2 spacephantom">
 
                     </div>
-                    <div id="space2" className="col-md-2 d-none d-md-block space2">
-                        
+                    <div id="space2" className="col-md-2 d-none d-md-block space2">                        
                         <h5>Categorias</h5> 
 
                         <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -116,6 +106,7 @@ console.log(categorias)
                              </button>
                         </div> 
                     </div>
+                  
 
 
 
@@ -397,3 +388,4 @@ function uploadFile() {
        }
     });
 };
+
