@@ -20,6 +20,18 @@ function Main() {
            <div className="image__nav">
            </div>
 
+
+            {/* PARA IR AL ADMINISTRATIVO */}
+
+           <div className="btn__adm">
+            <div className="">
+                <button type="button" className=" btn btn-outline-secondary">
+                    <b>Acceso Administrativo</b>
+                    </button>
+            </div>
+           </div>
+            
+
             <div className="position-relative">
 
             <nav id="nav1" className="navbar start-50 translate-middle-x navb px-3  ">
@@ -40,8 +52,7 @@ function Main() {
                     <div id="spacephantom" className="col-md-2 spacephantom">
 
                     </div>
-                    <div id="space2" className="col-md-2 d-none d-md-block space2">
-                        
+                    <div id="space2" className="col-md-2 d-none d-md-block space2">                        
                         <h5>Categorias</h5> 
 
                         <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -89,16 +100,12 @@ function Main() {
                         </div>
                         </div>
                     
-                        <div>
-                         <button type="button" data-bs-toggle="modal" data-bs-target="#addModal" className=" card btn btn-warning text-center">
-                             <b>+ Añadir producto</b>
-                             </button>
-                        </div> 
+                         
                     </div>
                   
 
 
-
+{/* 
                             <div className="modal fade" id="addModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div className="modal-dialog ">
                                 <div className="modal-content modalLook">
@@ -166,7 +173,7 @@ function Main() {
                             </div>
                                 </div>
                             </div>
-                            </div>
+                            </div> */}
 
 
 
@@ -377,3 +384,4 @@ function uploadFile() {
        }
     });
 };
+

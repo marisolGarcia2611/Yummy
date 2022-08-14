@@ -6,7 +6,12 @@ function OrdenesEnFila() {
      return (
       <section>
       <div className="space__tarject">
-                <table className="table table-dark table-striped">
+      <div className="btn btn-outline-light tarject__mesa" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <button className="btn btn-success Social__border__radius"></button>&nbsp;
+        <button className="btn btn-danger Social__border__radius"></button>&nbsp;
+         Mesa 1 
+        </div> 
+                {/* <table className="table table-dark table-striped">
                 <thead>
                 <th scope="col">Orden 1</th>
                 </thead>
@@ -41,7 +46,7 @@ function OrdenesEnFila() {
                       <button className="btn btn-dark rounded__btn">Orden Finalizada</button>
                     </div>
                 </tbody>
-                </table>
+                </table> */}
 
     </div>
 
