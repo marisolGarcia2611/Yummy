@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 
-function sideBar(){
+function SideBar(){
 
     
 
@@ -16,13 +16,13 @@ function sideBar(){
                <h6>Bebidas</h6> 
             </button>
             </h2>
-            <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            {/* <div id="flush-collapseOne" className="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                 <div className="accordion-body">
                 <a className="nav-link link-secondary" href="#BebidasCalientes">Bebidas calientes</a>
                 <a className="nav-link link-secondary" href="#BebidasFrias">Bebidas Frias</a>
                 <a className="nav-link link-secondary" href="#BebidasBaseTe">Bebidas Base Té </a> 
                 </div>
-            </div>
+            </div> */}
         </div>
         <div className="accordion-item">
             <h2 className="accordion-header" id="flush-headingTwo">
@@ -30,13 +30,13 @@ function sideBar(){
                 <h6>Aliementos</h6> 
             </button>
             </h2>
-            <div id="flush-collapseTwo" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+            {/* <div id="flush-collapseTwo" className="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                 <div className="accordion-body">
                      <a className="nav-link link-secondary" href="#Salado">Salado</a>
                      <a className="nav-link link-secondary" href="#SaladoRecienHorneado">Salado Recién Horneado</a>
                      <a className="nav-link link-secondary" href="#Saludable">Saludable</a>
                  </div>
-            </div>
+            </div> */}
         </div>
         <div className="accordion-item">
             <h2 className="accordion-header" id="flush-headingThree">
@@ -44,13 +44,13 @@ function sideBar(){
                  <h6>Postres</h6> 
             </button>
             </h2>
-            <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+            {/* <div id="flush-collapseThree" className="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
             <div className="accordion-body">
                   <p>Bebidas calientes</p>
                   <p>Bebidas frias</p>
                   <p>Bebidas base té</p>
             </div>
-            </div>
+            </div> */}
         </div>
         </div>
     
@@ -64,4 +64,4 @@ function sideBar(){
     );
 }
 
-export default sideBar;
+export default SideBar;
