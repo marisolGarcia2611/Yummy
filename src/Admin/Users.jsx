@@ -1,4 +1,4 @@
-import { React, Component, useEffect } from "react";
+import { React, Component, useEffect, useState } from "react";
 // Se importa Link de react router dom, que es el que hara la funcion
 // de lals etiquetas <a>, hara referencias a las rutas especficadas en App.js
 // Importar en cada archivo que se necesite
@@ -9,31 +9,71 @@ import perfil from "../images/usuario.png";
 import HeaderPage from "./Components/HeaderPage";
 import Table from "./Components/Table";
 import Form from "./Components/forms";
-import NavBar from "./Components/NavBar";
-import SideBar from "./Components/SideBar";
+// import NavBar from "./Components/NavBar";
+// import SideBar from "./Components/SideBar";
 import Admin from ".";
 import axios from "axios";
+import Cookies from "universal-cookie";
+// import DataTableCrudDemo from "./pruebas";
+import { AlertClass } from "../AlertClass";
 
+const cookies = new Cookies();
+const Alert = new AlertClass();
 const API = "http://127.0.0.1:8000/api";
 const baseURL = "https://jsonplaceholder.typicode.com/posts/1";
 const current_page = "Usuarios";
+const axiosInstance = axios.create({
+  baseURL: API,
+  timeout: 3500,
+  headers: {
+    ContentType: "application/json",
+    Accept: "application/json",
+    Authorization: `Bearer ${cookies.get("Authorization")}`,
+  },
+});
 
-  function GETRequest() {
-   //  const [post, setPost] = React.useState(null);
 
-      // React.useEffect(() => {
-         const response = axios.get(`${API}/users`,{
-            headers: { 'Content-Types': 'application/json', 'Accept': 'application/json', 'Authorization': `Bearer 4|K32hYx2YAfR0JkOHeECE1mOcwQ0K4xfPDHV7bfDW` },
-         }).then((response) => {
-         });
-         
-      // }, []);
-  }
+function POSTRequest(url) {
+  useEffect(() => {
+    // const [post, setPost] = React.useState(null);
+
+    // headers: { Authorization: `Bearer Bearer 4|K32hYx2YAfR0JkOHeECE1mOcwQ0K4xfPDHV7bfDW`}//${cookies.get("Authorization")}` }
+    const request = async () => {
+      return await axiosInstance.get(`/${url}`, {}).catch((response) => {
+        let { message } = response.response.data.errors;
+
+        throw new Error(message[0]);
+      });
+    };
+    request().then((res) => {
+      // setCategorias(res.data.data)
+      console.log(res.data.data);
+    });
+  }, []);
+}
+function click() {
+  Alert.Toast("success","Toast de prueba");
+}
+
 const Users = (props) => {
-   // React.useEffect(() => {
-      let r = GETRequest();
-      console.log(r);
-   // }, []);
+  const [GETData, setData] = useState([]);
+  function GETRequest(url) {
+    useEffect(() => {
+      const request = async () => {
+        return await axiosInstance.get(`/${url}`).catch((response) => {
+          let objResponse = response.data;
+  
+          throw new Error(message[0]);
+        });
+      };
+      request().then((res) => {
+        setData(res.data.data)
+        // console.log(res.data.data);
+      });
+    }, []);
+  }
+  let btn_abrir_modal = document.querySelector("#btn_abrir_modal");
+  GETRequest("users");
 
   return (
     <section>
@@ -55,6 +95,7 @@ const Users = (props) => {
                 className="float-end btn btn-success fw-bold"
                 data-bs-toggle="modal"
                 data-bs-target="#modal"
+                onClick={() => click()}
               >
                 <i className="fa-solid fa-circle-plus"></i>&nbsp; AGREGAR
                 USUARIO
@@ -62,16 +103,20 @@ const Users = (props) => {
             </div>
             <div className="card-body">
               {/* <!-- tabla --> */}
-              <Table />
+              {/* <DataTableCrudDemo /> */}
+              {/* <Table data={registers} click={() => click()}/> */}
+              <Table 
+                data={GETData} 
+              />
             </div>
           </div>
         </div>
 
         {/* <!-- Modal Usuario --> */}
-        <Form />
+        {/* <Form data={data}/> */}
       </div>
     </section>
   );
-}
+};
 
 export default Users;

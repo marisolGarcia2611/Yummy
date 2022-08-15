@@ -34,7 +34,19 @@ function LogIn() {
       changeState(true)
       credenciales.username = ''
       credenciales.password = ''
-      navigate("/Main")
+      Swal.fire({
+        icon: `success`,
+        title: `Bienvenido ${name}`,
+        // html: ajaxResponse.Texto_alerta,
+        showConfirmButton: false,
+        confirmButtonColor: '#494E53',
+        timer: 1500,
+        allowEscapeKey: false,
+        allowOutsideClick: false,
+        showConfirmButton: false,
+     }).then(() => {
+       navigate("/Main")
+     })
     } catch (error) {
       Swal.fire({
         title: '¡Error!',

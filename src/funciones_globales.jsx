@@ -4,7 +4,7 @@
 
 import axios from "axios";
 import BlockUI from "./componentes/BlockUI/BlockUI";
-
+import { Swal, Toast} from "sweetalert2";
 // });
 
 //#region RUTAS AL APP DE LOS MODELOS
@@ -18,8 +18,8 @@ const
 
 
 /*Select2*/
-$.fn.select2.defaults.set('language', 'es');
-moment.locale('es');
+// $.fn.select2.defaults.set('language', 'es');
+// moment.locale('es');
 
 
 
@@ -77,6 +77,27 @@ export async function Request(...props) {
    // }
 }
 
+export function GETRequest(url) {
+   useEffect(() => {
+     // const [post, setPost] = React.useState(null);
+ 
+     // headers: { Authorization: `Bearer Bearer 4|K32hYx2YAfR0JkOHeECE1mOcwQ0K4xfPDHV7bfDW`}//${cookies.get("Authorization")}` }
+     const request = async () => {
+       return await axiosInstance
+         .get(`/${url}`)
+         .catch((response) => {
+           let objResponse = response.data;
+ 
+           throw new Error(message[0]);
+           
+         });
+     };
+     request().then((res) => {
+       // setCategorias(res.data.data)
+       console.log(res.data.data);
+     });
+   }, []);
+ }
 
 
 
@@ -89,6 +110,8 @@ export async function Request(...props) {
 
 
 
+
+/*
 
 function peticionRegistrarEditar(url,datos,funcion_success) {
    $.ajax({
@@ -374,7 +397,7 @@ function formatearFechaHoraNormal(la_fecha) {
 }
 /* --- FUNCIONES DE CAJON--- */
 
-
+/*
 //VALIDAR RANGO DE FECHAS
 function validarRangoFechas(accion) {
    let
@@ -429,6 +452,7 @@ function resetearSelect2(select2,url,datos) {
 }
 /* ------ RELLENAR SELECTS 2 ------ */
 
+/*
 // Select2 Padre
 function rellenarSelect2(url,datos,id_activo,nombre_select) {
    $.ajax({
@@ -469,23 +493,20 @@ function rellenarSelect2Padre(ajaxResponse,id_activo) {
 
    input_id_padre.html("");
 
-   let opciones = /*HTML*/ `
+   let opciones = /*HTML*/ 
+   /*`
       <option value="-1">Selecciona una opción</option>
    `;
 
    if (id_activo == 0) {
-      opciones += /*HTML*/ `
+      opciones += /*HTML*/ 
+      /*`
          <option value="0" selected>*** Módulo Padre ***</option>
       `;
       input_url.attr('readonly', true);
       input_url.val('#');
       input_descripcion.focus();
-   } else {
-      opciones += /*HTML*/ `
-         <option value="0">*** Módulo Padre ***</option>
-      `;
-      input_url.attr('readonly', false);
-   }
+   } 
 
 
    input_id_padre.append(opciones);
@@ -504,7 +525,8 @@ function rellenarSelect2Perfiles(ajaxResponse,id_activo) {
 
    input_id_perfil.html("");
 
-   let opciones = /*HTML*/ `
+   let opciones = /*HTML*/ 
+   /*`
       <option value="-1">Selecciona una opción</option>
    `;
 
@@ -573,7 +595,7 @@ function rellenarSelect2Perfiles(ajaxResponse,id_activo) {
 
 
 /* FUNCIONES LOGIN */
-function keyInicia(){
+/*function keyInicia(){
    if (window.event.keyCode == 13) {
      IniciaSesion();
    }
@@ -619,5 +641,5 @@ function keyInicia(){
    }
  }
 
-
+*/
 // export {mostrarToast, mostrarBlockOutCargando}
