@@ -6,6 +6,7 @@ import {Link} from "react-router-dom";
 // import '../../App.css';
 import logo from '../../images/yummy.svg';
 import perfil from '../../images/usuario.png';
+import Recipes from "../Recipes";
 
 function SideBar() {
    return (
@@ -49,6 +50,22 @@ function SideBar() {
                                     <p>Productos</p>
                                  </a>
                            </li>
+                           <Link to="../Inventory">
+                              <li className="nav-item">
+                                 <a className="nav-link">
+                                    <i className="far fa-circle nav-icon text-sm"></i>
+                                    <p>Inventario</p>
+                                 </a>
+                              </li>
+                           </Link>
+                           <Link to="../Recipes">
+                              <li className="nav-item">
+                                 <a className="nav-link">
+                                    <i className="far fa-circle nav-icon text-sm"></i>
+                                    <p>Recetas</p>
+                                 </a>
+                              </li>
+                           </Link>
                         </ul>
                      </li>
 

@@ -8,13 +8,17 @@ import NavBar from "./Components/NavBar";
 import SideBar from "./Components/SideBar";
 import Users from "./Users";
 import { mostrarBlockOutCargando, mostrarToast } from "../funciones_globales"
+import Inventory from "./Inventory";
+import Recipes from "./Recipes";
 
 function Admin() {
    return (
       <section>
          <NavBar/>
-         <SideBar/>
-         <Users toast={mostrarToast} block={mostrarBlockOutCargando}/>
+         <SideBar />
+         {/* <Inventory /> */}
+         <Recipes/>
+         {/* <Users toast={mostrarToast} block={mostrarBlockOutCargando}/> */}
       </section>
    )
 }
