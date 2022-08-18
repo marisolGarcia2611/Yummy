@@ -4,7 +4,7 @@ import React, { Component } from "react";
 // Importar en cada archivo que se necesite
 import { Link } from "react-router-dom";
 
-class Table extends Component {
+export class Table extends Component {
   render() {
     return (
       <>
@@ -16,7 +16,7 @@ class Table extends Component {
           >
             <thead className="thead-dark">
               <tr>
-                {this.props.theads.map((d) => (
+                {this.props.theads.map((d, i) => (
                   <th>{d.name}</th>
                 ))}
               </tr>
@@ -25,21 +25,34 @@ class Table extends Component {
               {this.props.data.map((d) => (
                 <tr>
                   <td>{d.name}</td>
+                  <td>{d.last_name}</td>
                   <td>{d.email}</td>
                   <td>{d.username}</td>
                   <td>{d.phone}</td>
                   <td>
                     <div className="btn-group">
-                      <button type="button" className="btn btn-primary">
+                      <button type="button" className="btn btn-primary"
+                      onClick={this.props.UpdateObject}
+                      data-bs-toggle="modal"
+                      data-bs-target="#modal"
+                      data-id={d.id}>
                         <i
                           className="far fa-edit"
-                          onClick={this.props.click}
+                          onClick={this.props.UpdateObject}
+                          data-bs-toggle="modal"
+                          data-bs-target="#modal"
+                          data-id={d.id}
                         ></i>
                       </button>
-                      <button 
+                      <button
                         type="button"
-                        className="btn btn-danger">
-                        <i className="far fa-trash"></i>
+                        className="btn btn-danger"
+                        onClick={this.props.DeleteObject}
+                        data-id={d.id}>
+                        <i className="far fa-trash"
+                          onClick={this.props.DeleteObject}
+                          data-id={d.id}
+                        ></i>
                       </button>
                     </div>
                   </td>
@@ -57,28 +70,5 @@ class Table extends Component {
         </div>
       </>
     );
-    let tabla;
-
-    tabla = $("#tabla").DataTable({
-      responsive: true,
-      language: {
-        // url: "https://cdn.datatables.net/plug-ins/1.11.3/i18n/es-mx.json"
-      },
-      columnDefs: [
-        {
-          className: "dt-center",
-          targets: "_all",
-        },
-      ],
-      dom: '<"row"<"col-md-6 "l> <"col-md-6"f> > rt <"row"<"col-md-6 "i> <"col-md-6"p> >',
-      lengthMenu: [
-        [5, 10, 50, 100, -1],
-        [5, 10, 50, 100, "Todos"],
-      ],
-      pageLength: 10,
-      deferRender: true,
-      aaSorting: [], //deshabilitar ordenado automatico
-    });
   }
 }
-export default Table;

@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
-import { UserClass } from "../Models/UserClass";
-import { AlertClass } from "../../AlertClass";
-
-const Alert = new AlertClass();
-const User = new UserClass();
+import { RoleClass } from "../Models/RoleClass";
+const Role = new RoleClass();
 const cookies = new Cookies();
 const API = "http://127.0.0.1:8000/api";
 
@@ -19,21 +16,21 @@ const axiosInstance = axios.create({
   },
 });
 
-export class UserService {
+export class RoleService {
   GetList() {
     return axiosInstance
-    .get(`/users`, {})
+    .get(`/roles`, {})
     .then((res) => res)
     .then((d) => d.data)
     .catch((response) => {
-      let { message } = response.response.data.errors;
+      let { message } = response.response;
       throw new Error(message[0]);
     });
   }
 
   GetObject(id) {
     return axiosInstance
-      .get(`/users/${id}`, {})
+    .get(`/roles/${id}`, {})
     .then((res) => res)
     .then((d) => d.data)
     .catch((response) => {
@@ -42,17 +39,10 @@ export class UserService {
     });
   }
 
-  CreateObject(object) {
-    console.log(`el objeto: ${object.username}`);
+  CreateObject(Role) {
     return axiosInstance
-    .post(`/users`, {
-        name: object.name,
-        last_name: object.last_name,
-        email: object.email,
-        username: object.username,
-        password: object.password,
-        phone: object.phone,
-        role_id: object.role_id
+    .post(`/roles`, {
+      data: object,
     })
     .then((res) => res)
     .then((d) => d.data)
@@ -62,17 +52,10 @@ export class UserService {
     });
   }
 
-  UpdateObject(object) {
+  UpdateObject(Role) {
     return axiosInstance
-    .put(`/users`, {
-        id: object.id,
-        name: object.name,
-        last_name: object.last_name,
-        email: object.email,
-        username: object.username,
-        password: object.password,
-        phone: object.phone,
-        role_id: object.role_id
+    .put(`/roles`, {
+      data: object,
     })
     .then((res) => res)
     .then((d) => d.data)
@@ -84,7 +67,7 @@ export class UserService {
 
   DeleteObject(id) {
     return axiosInstance
-    .delete(`/users/${id}`, {})
+    .delete(`/roles/${id}`, {})
     .then((res) => res)
     .then((d) => d.data)
     .catch((response) => {
@@ -109,7 +92,7 @@ export class FormClass extends Component {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title fw-bold" id="modalLabel">
-                  <i className="fa-solid fa-user-plus"></i>&nbsp; REGISTRAR
+                  <i className="fa-solid fa-role-plus"></i>&nbsp; REGISTRAR
                   USUARIO
                 </h5>
                 <button

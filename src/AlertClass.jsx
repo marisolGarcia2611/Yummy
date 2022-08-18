@@ -1,4 +1,3 @@
-// import { Swal, Toast } from "sweetalert2";
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 const MySwal = withReactContent(Swal)
@@ -24,7 +23,25 @@ export class AlertClass {
       });
    }
 
-   Question(title, message, confirm_btn_text, confirm_title, confirm_text) {
+   Delete(title, message, confirm_title, function_confirm) {
+      Swal.fire({
+         title: `${title}`,
+         text: `${message}`,
+         icon: "question",
+         showCancelButton: true,
+         confirmButtonColor: "#3085d6",
+         cancelButtonColor: "#d33",
+         confirmButtonText: `Eliminar!`,
+         cancelButtonText: `Cancelar`,
+      }).then((result) => {
+         if (result.isConfirmed) {
+            function_confirm()
+            this.Toast("succes",confirm_title);
+         }
+      });
+   }
+
+   Question(title, message, confirm_btn_text="Eliminar!", confirm_title, confirm_text) {
       Swal.fire({
          title: `${title}`,
          text: `${message}`,

@@ -13,16 +13,13 @@ function SideBar() {
       {/* <!-- Main Sidebar Container --> */}
       <aside className="main-sidebar sidebar-dark-primary elevation-4">
         {/* <!-- Brand Logo --> */}
-        <a
-          href="<?php echo($URL_BASE) ?>/Admin"
-          className="brand-link text-md"
-          title="Return to Admin page"
-        >
-          {/* <img src={logo} alt="Logo" className="brand-image" style={{opacity:".8"}}/> */}
-          <img src={logo} className="brand-image" alt="logo" />
-          <span className="ml-3 fw-bold">YUMMY</span>
-          <span className="brand-text fw-light">app</span>
-        </a>
+        <NavLink to="/" className="brand-link text-md">
+          <a href="#" className="text-light" title="Regresar al menú">
+            <img src={logo} className="brand-image" alt="logo" />
+            <span className="ml-3 fw-bold">YUMMY</span>
+            <span className="brand-text fw-light">app</span>
+          </a>
+        </NavLink>
 
         {/* <!-- Sidebar --> */}
         <div className="sidebar">
@@ -45,16 +42,16 @@ function SideBar() {
                 </a>
                 <ul className="nav nav-treeview text-sm">
                   <NavLink to="/Admin/Users" className="nav-link">
-                     <li className="nav-item">
-                        <i className="far fa-circle nav-icon text-sm"></i>
-                        <p>Usuarios</p>
-                     </li>
+                    <li className="nav-item">
+                      <i className="far fa-circle nav-icon text-sm"></i>
+                      <p>Usuarios</p>
+                    </li>
                   </NavLink>
                   <NavLink to="/Admin/Pruebas" className="nav-link">
-                     <li className="nav-item">
-                        <i className="far fa-circle nav-icon text-sm"></i>
-                        <p>Pruebas</p>
-                     </li>
+                    <li className="nav-item">
+                      <i className="far fa-circle nav-icon text-sm"></i>
+                      <p>Pruebas</p>
+                    </li>
                   </NavLink>
                 </ul>
               </li>
