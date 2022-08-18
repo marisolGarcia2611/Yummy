@@ -175,16 +175,16 @@ class Users extends Component {
       });
     });
     // document.getElementById("role_id").value = res.data[0].role_id;
-    setTimeout(function () {
-        document.querySelector('#name').value = this.state.form_data.name
-        document.querySelector('#last_name').value = this.state.form_data.last_name
-        document.querySelector('#email').value = this.state.form_data.email
-        document.querySelector('#username').value = this.state.form_data.username
-        document.querySelector('#password').value = this.state.form_data.password
-        document.querySelector('#role_id').value = this.state.form_data.role_id
-        document.querySelector('#phone').value = this.state.form_data.phone
-        document.getElementById("name").focus();
-      }, 1000);
+    // setTimeout(function () {
+    //     document.querySelector('#name').value = this.state.form_data.name
+    //     document.querySelector('#last_name').value = this.state.form_data.last_name
+    //     document.querySelector('#email').value = this.state.form_data.email
+    //     document.querySelector('#username').value = this.state.form_data.username
+    //     document.querySelector('#password').value = this.state.form_data.password
+    //     document.querySelector('#role_id').value = this.state.form_data.role_id
+    //     document.querySelector('#phone').value = this.state.form_data.phone
+    //     document.getElementById("name").focus();
+    //   }, 1000);
     // console.log(this.state.form_data);
   };
 
@@ -244,13 +244,13 @@ class Users extends Component {
     e.persist();
     // console.log(this.state.roles)
     // console.log(this.state.form_data)
-    document.querySelector('#name').value = ""
-    document.querySelector('#last_name').value = ""
-    document.querySelector('#email').value = ""
-    document.querySelector('#username').value = ""
-    document.querySelector('#password').value = ""
-    document.querySelector('#role_id').value = "-1"
-    document.querySelector('#phone').value = ""
+    // document.querySelector('#name').value = ""
+    // document.querySelector('#last_name').value = ""
+    // document.querySelector('#email').value = ""
+    // document.querySelector('#username').value = ""
+    // document.querySelector('#password').value = ""
+    // document.querySelector('#role_id').value = "-1"
+    // document.querySelector('#phone').value = ""
     await this.setState({
       form_data: {
         id: null,
@@ -272,7 +272,6 @@ class Users extends Component {
 
   render() {
     // console.log(this.state.form_data)
-    let id = this.state.form_data.id;
     return (
       <>
         <Admin />
@@ -316,7 +315,7 @@ class Users extends Component {
             handleChange={this.handleChange}
             form_data={this.state.form_data}
             roles={this.state.roles}
-            id={id}
+            id={this.state.form_data.id}
             UpdateObject={this.UpdateObject}
             CreateObject={this.CreateObject}
             ClearForm={this.ClearForm}/>
