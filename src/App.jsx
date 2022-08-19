@@ -7,7 +7,8 @@ import SingUp from "./SingUp";
 import Main from "./Main";
 import Orden from "./Orden";
 import Admin from "./Admin/index";
-
+import Ordenes from './Ordenes';
+import Carrito from './Carrito';
 // console.log("ajas");
 let body = document.getElementsByTagName("body");
 
@@ -34,9 +35,12 @@ function App() {
           index
           path="/"
           element={
-            <section className="App-header">
-              <LogIn />
-            </section>
+            <ProtectedRoute>
+              <section className="App-header">
+                <LogIn />
+              </section>
+            </ProtectedRoute>
+
           }
         ></Route>
 
@@ -58,19 +62,42 @@ function App() {
           exact
           path="/SingUp"
           element={
-            <section className="App-header">
-              <SingUp />
-            </section>
+            <ProtectedRoute>
+              <section className="App-header">
+                <SingUp />
+              </section>
+            </ProtectedRoute>
+
           }
         ></Route>
+        <Route exact path="/Carrito" element={
+          <ProtectedRoute>
+            <section>
+              <Carrito />
+            </section>
+          </ProtectedRoute>
 
+        }>
+        </Route>
+
+        <Route exact path="/Ordenes" element={
+          <ProtectedRoute>
+            <section>
+            <Ordenes />
+          </section>
+          </ProtectedRoute>
+          
+        }></Route>
         <Route
           exact
           path="/Orden"
           element={
-            <section>
+            <ProtectedRoute>
+              <section>
               <Orden />
             </section>
+            </ProtectedRoute>
+            
           }
         ></Route>
 
@@ -78,9 +105,12 @@ function App() {
           exact
           path="/Carrito"
           element={
-            <section>
+            <ProtectedRoute>
+              <section>
               <Carrito />
             </section>
+            </ProtectedRoute>
+            
           }
         ></Route>
 
@@ -88,9 +118,12 @@ function App() {
           exact
           path="/Ordenes"
           element={
-            <section>
+            <ProtectedRoute>
+              <section>
               <Ordenes />
             </section>
+            </ProtectedRoute>
+            
           }
         ></Route>
 
@@ -98,11 +131,14 @@ function App() {
           exact
           path="/Admin/"
           element={
-            // <section className="App-header">
+            <ProtectedRoute>
+              
             // {/* <!-- Site wrapper --> */}
             <div className="wrapper">
               <Admin />
             </div>
+            </ProtectedRoute>
+            
           }
         ></Route>
 
@@ -110,22 +146,27 @@ function App() {
           exact
           path="/Admin/Users"
           element={
-            // <section className="App-header">
+            <ProtectedRoute>
+            
             // {/* <!-- Site wrapper --> */}
             <div className="wrapper">
               <Users />
             </div>
+            </ProtectedRoute>
+            
           }
         ></Route>
         <Route
           exact
           path="/Admin/Pruebas"
           element={
-            // <section className="App-header">
+            <ProtectedRoute>
             // {/* <!-- Site wrapper --> */}
             <div className="wrapper">
               {/* <Pruebas /> */}
             </div>
+            </ProtectedRoute>
+            
           }
         ></Route>
       </Routes>
