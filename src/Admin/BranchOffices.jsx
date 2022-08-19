@@ -8,12 +8,12 @@ import Cookies from "universal-cookie";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { AlertClass } from "../AlertClass";
-import { FormClass, BranchOfficeService } from "./Services/BranchOfficeService";
+import { BranchOfficeServiceClass } from "./Services/BranchOfficeService";
 import { BranchOfficesClass, Table, Form } from "./Models/BranchOfficeClass";
 
 const MySwal = withReactContent(Swal);
 // const User = new UserClass();
-// const userService = new UserService();
+const BranchOfficeService = new BranchOfficeServiceClass();
 const cookies = new Cookies();
 const Alert = new AlertClass();
 const current_folder = "Administación";

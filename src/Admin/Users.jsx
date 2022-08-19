@@ -11,14 +11,14 @@ import withReactContent from "sweetalert2-react-content";
 import { AlertClass } from "../AlertClass";
 import { FormClass, UserService } from "./Services/UserService";
 import { UserClass, Table, Form } from "./Models/UserClass";
-import { RoleClass } from "./Models/RolesssClass";
-import { RoleService } from "./Services/aRoleService";
+import { RoleClass } from "./Models/RoleClass";
+import { RoleServiceClass } from "./Services/RoleService";
 
 const MySwal = withReactContent(Swal);
 const User = new UserClass();
 const userService = new UserService();
 const Role = new RoleClass();
-const roleService = new RoleService();
+const roleService = new RoleServiceClass();
 // const Form = new FormClass();
 const cookies = new Cookies();
 const Alert = new AlertClass();

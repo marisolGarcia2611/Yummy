@@ -38,6 +38,10 @@ export class Table extends Component {
               {this.props.data.map((d) => (
                 <tr>
                   <td>{d.bo_name}</td>
+                  <td>{d.bo_city}</td>
+                  <td>{d.bo_state}</td>
+                  <td>{d.bo_country}</td>
+                  <td>{d.bo_address}</td>
                   <td>
                     <div className="btn-group">
                       <button
