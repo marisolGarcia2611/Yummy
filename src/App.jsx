@@ -20,7 +20,9 @@ import Navbar from "./Navbar";
 import { ProtectedRoute } from "./componentes/ProtectedRoute";
 import { AuthProvider } from "./context/authContext";
 import Users from "./Admin/Users";
-import Pruebas from "./Admin/pruebas";
+import BranchOffices from "./Admin/BranchOffices";
+import Category from "./Admin/Categories";
+import Roles from "./Admin/Roles";
 /*Menu
 Ordenes
 Pedidos
@@ -68,9 +70,11 @@ function App() {
           exact
           path="/Orden"
           element={
+            <ProtectedRoute>
             <section>
               <Orden />
             </section>
+            </ProtectedRoute>
           }
         ></Route>
 
@@ -78,9 +82,11 @@ function App() {
           exact
           path="/Carrito"
           element={
+            <ProtectedRoute>
             <section>
               <Carrito />
             </section>
+            </ProtectedRoute>
           }
         ></Route>
 
@@ -88,9 +94,11 @@ function App() {
           exact
           path="/Ordenes"
           element={
+            <ProtectedRoute>
             <section>
               <Ordenes />
             </section>
+            </ProtectedRoute>
           }
         ></Route>
 
@@ -98,34 +106,73 @@ function App() {
           exact
           path="/Admin/"
           element={
-            // <section className="App-header">
-            // {/* <!-- Site wrapper --> */}
+            <ProtectedRoute>
+            {/* <!-- Site wrapper --> */}
             <div className="wrapper">
               <Admin />
             </div>
+            </ProtectedRoute>
           }
         ></Route>
 
         <Route
           exact
-          path="/Admin/Users"
+          path="/Admin/Usuarios"
           element={
-            // <section className="App-header">
-            // {/* <!-- Site wrapper --> */}
+            <ProtectedRoute>
+              {/* <!-- Site wrapper --> */}
             <div className="wrapper">
               <Users />
             </div>
+            </ProtectedRoute>
           }
         ></Route>
         <Route
           exact
-          path="/Admin/Pruebas"
+          path="/Admin/Roles"
           element={
-            // <section className="App-header">
-            // {/* <!-- Site wrapper --> */}
+            <ProtectedRoute>
+              {/* <!-- Site wrapper --> */}
             <div className="wrapper">
-              {/* <Pruebas /> */}
+              <Roles />
             </div>
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          exact
+          path="/Admin/Sucursales"
+          element={
+            <ProtectedRoute>
+            {/* <!-- Site wrapper --> */}
+            <div className="wrapper">
+              <BranchOffices />
+              </div>
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          exact
+          path="/Admin/Productos"
+          element={
+            <ProtectedRoute>
+            {/* <!-- Site wrapper --> */}
+            <div className="wrapper">
+              {/* <Products /> */}
+              </div>
+            </ProtectedRoute>
+          }
+        ></Route>
+        <Route
+          exact
+          path="/Admin/Categorias"
+          element={
+            <ProtectedRoute>
+            {/* <!-- Site wrapper --> */}
+            <div className="wrapper">
+              <Category />
+              </div>
+            </ProtectedRoute>
           }
         ></Route>
       </Routes>

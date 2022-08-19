@@ -13,14 +13,14 @@ function HeaderPage(props) {
                <div className="row mb-2">
                   <div className="col-sm-6">
                      <h1>
-                        <i className="fa-solid fa-user-tie"></i>&nbsp; {props.current_page}
+                        <i className={props.icon_page}></i>&nbsp; {props.current_page}
                         {/* <!-- <em className="fw-ligth text-muted lead text-sm">| </em> --> */}
                      </h1>
                   </div>
                   <div className="col-sm-6">
                      <ol className="breadcrumb float-sm-right">
                         <li className="breadcrumb-item"><a href="<?php echo $ADMIN_PATH ?>"><i className="fa-solid fa-house"></i>&nbsp; Admin</a></li>
-                        <li className="breadcrumb-item">Administración</li>
+                        <li className="breadcrumb-item">{props.current_folder}</li>
                         <li className="breadcrumb-item active">{props.current_page}</li>
                      </ol>
                   </div>

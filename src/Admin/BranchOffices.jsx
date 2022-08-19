@@ -4,50 +4,44 @@ import logo from "../images/yummy.svg";
 import perfil from "../images/usuario.png";
 import HeaderPage from "./Components/HeaderPage";
 import Admin from ".";
-import axios from "axios";
 import Cookies from "universal-cookie";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { AlertClass } from "../AlertClass";
 import { FormClass, UserService } from "./Services/UserService";
 import { UserClass, Table, Form } from "./Models/UserClass";
-import { RoleClass } from "./Models/RolesssClass";
-import { RoleService } from "./Services/aRoleService";
 
 const MySwal = withReactContent(Swal);
-const User = new UserClass();
-const userService = new UserService();
-const Role = new RoleClass();
-const roleService = new RoleService();
-// const Form = new FormClass();
+// const User = new UserClass();
+// const userService = new UserService();
 const cookies = new Cookies();
 const Alert = new AlertClass();
 const current_folder = "Administación";
-const current_page = "Usuarios";
-const icon_page = "fa-solid fa-user-tie";
+const current_page = "Sucursales";
+const icon_page = "fa-solid fa-scroll";
 
-class Users extends Component {
+class BranchOffices extends Component {
   state = {
     theads: [
-      { name: "Nombres" },
-      { name: "Apellidos" },
-      { name: "Correo" },
-      { name: "Usuario" },
-      { name: "Teléfono" },
+      { name: "Sucursal" },
+      { name: "ciudad" },
+      { name: "Estado" },
+      { name: "Pais" },
+      { name: "Dirección" },
       { name: "Acciones" },
     ],
     registers: [],
     form_data: {
-      id: null,
-      name: null,
-      last_name: null,
-      email: null,
-      username: null,
-      password: null,
-      role_id: null,
-      phone: null,
+      bo_id: null,
+      bo_name: null,
+      bo_city: null,
+      bo_state: null,
+      bo_country: null,
+      bo_address: null,
     },
-    roles: [],
+    countries: [],
+    states: [],
+    cities: [],
   };
 
   componentDidMount(e) {
@@ -230,9 +224,6 @@ class Users extends Component {
     document.getElementById("role_id").value = this.state.form_data.role_id;
     // console.log(this.state.form_data);
   };
-  click() {
-    Alert.Toast("success", "Toast de prueba");
-  }
 
   render() {
     // console.log(this.state.form_data)
@@ -261,7 +252,7 @@ class Users extends Component {
                   onClick={this.ClearForm}
                 >
                   <i className="fa-solid fa-circle-plus"></i>&nbsp; AGREGAR
-                  USUARIO
+                  SUCURSAL
                 </button>
               </div>
               <div className="card-body">
@@ -290,4 +281,4 @@ class Users extends Component {
     );
   }
 }
-export default Users;
+export default BranchOffices;

@@ -36,21 +36,62 @@ function SideBar() {
                 <a href="#" className="nav-link">
                   <i className="nav-icon fa-solid fa-folder-tree"></i>
                   <p>
-                    Administración
+                    ADMINISTRACIÓN
                     <i className="right fas fa-angle-left"></i>
                   </p>
                 </a>
                 <ul className="nav nav-treeview text-sm">
-                  <NavLink to="/Admin/Users" className="nav-link">
+                  <NavLink to="/Admin/Usuarios" className="nav-link">
                     <li className="nav-item">
                       <i className="far fa-circle nav-icon text-sm"></i>
                       <p>Usuarios</p>
                     </li>
                   </NavLink>
-                  <NavLink to="/Admin/Pruebas" className="nav-link">
+                  <NavLink to="/Admin/Roles" className="nav-link">
                     <li className="nav-item">
                       <i className="far fa-circle nav-icon text-sm"></i>
-                      <p>Pruebas</p>
+                      <p>Roles</p>
+                    </li>
+                  </NavLink>
+                  {/* <NavLink to="/Admin/Permisos" className="nav-link">
+                    <li className="nav-item">
+                      <i className="far fa-circle nav-icon text-sm"></i>
+                      <p>Permisos</p>
+                    </li>
+                  </NavLink> */}
+                  <NavLink to="/Admin/Sucursales" className="nav-link">
+                    <li className="nav-item">
+                      <i className="far fa-circle nav-icon text-sm"></i>
+                      <p>Sucursales</p>
+                    </li>
+                  </NavLink>
+                </ul>
+              </li>
+              <li className="nav-item menu-is-opening menu-open">
+                <a href="#" className="nav-link">
+                  <i className="nav-icon fa-solid fa-folder-tree"></i>
+                  <p>
+                    PRODUCTOS
+                    <i className="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul className="nav nav-treeview text-sm">
+                  <NavLink to="/Admin/Productos" className="nav-link">
+                    <li className="nav-item">
+                      <i className="far fa-circle nav-icon text-sm"></i>
+                      <p>Productos</p>
+                    </li>
+                  </NavLink>
+                  <NavLink to="/Admin/Categorias" className="nav-link">
+                    <li className="nav-item">
+                      <i className="far fa-circle nav-icon text-sm"></i>
+                      <p>Categorias</p>
+                    </li>
+                  </NavLink>
+                  <NavLink to="/Admin/Recetas" className="nav-link">
+                    <li className="nav-item">
+                      <i className="far fa-circle nav-icon text-sm"></i>
+                      <p>Recetas (dejarla al final)</p>
                     </li>
                   </NavLink>
                 </ul>

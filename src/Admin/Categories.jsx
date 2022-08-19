@@ -9,50 +9,37 @@ import Cookies from "universal-cookie";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { AlertClass } from "../AlertClass";
-import { FormClass, UserService } from "./Services/UserService";
-import { UserClass, Table, Form } from "./Models/UserClass";
-import { RoleClass } from "./Models/RolesssClass";
-import { RoleService } from "./Services/aRoleService";
+import { CategoryServiceClass } from "./Services/CategoryService";
+import { CategoryClass, Table, Form } from "./Models/CategoryClass";
 
 const MySwal = withReactContent(Swal);
-const User = new UserClass();
-const userService = new UserService();
-const Role = new RoleClass();
-const roleService = new RoleService();
-// const Form = new FormClass();
+const Category = new CategoryClass();
+const CategoryService = new CategoryServiceClass();
+
 const cookies = new Cookies();
 const Alert = new AlertClass();
 const current_folder = "Administación";
-const current_page = "Usuarios";
-const icon_page = "fa-solid fa-user-tie";
+const current_page = "Categorias";
+const icon_page = "fa-solid fa-scroll";
+// const icon_page = "fa-solid fa-user-tie";
 
-class Users extends Component {
+class Categories extends Component {
   state = {
     theads: [
-      { name: "Nombres" },
-      { name: "Apellidos" },
-      { name: "Correo" },
-      { name: "Usuario" },
-      { name: "Teléfono" },
+      { name: "Categoria" },
+      { name: "Descripción" },
       { name: "Acciones" },
     ],
     registers: [],
     form_data: {
-      id: null,
-      name: null,
-      last_name: null,
-      email: null,
-      username: null,
-      password: null,
-      role_id: null,
-      phone: null,
+      cat_id: null,
+      cat_name: null,
+      cat_description: null,
     },
-    roles: [],
   };
 
   componentDidMount(e) {
-    this.GetListUsers();
-    this.GetListRoles();
+    this.GetList();
     setTimeout(() => {
       this.SetDataTableStyle(e);
     }, 1500);
@@ -84,26 +71,14 @@ class Users extends Component {
     });
   }
 
-  GetListUsers = async (e) => {
+  GetList = async (e) => {
     const users_request = async () => {
-      return await userService.GetList();
+      return await CategoryService.GetList();
     };
     users_request().then((res) => {
-      // console.log(res)
+      console.log(res);
       this.setState({
         registers: res.data,
-      });
-    });
-  };
-
-  GetListRoles = (e) => {
-    const roles_request = async () => {
-      return await roleService.GetList();
-    };
-    roles_request().then((res) => {
-      // console.log(res.data)
-      this.setState({
-        roles: res.data,
       });
     });
   };
@@ -124,7 +99,7 @@ class Users extends Component {
     let data = this.state.form_data;
     // console.log(data);
     const request = async () => {
-      return await userService.CreateObject(data);
+      return await CategoryService.CreateObject(data);
     };
     request().then((res) => {
       // console.log(res);
@@ -142,20 +117,15 @@ class Users extends Component {
     let id = e.target.getAttribute("data-id");
     // console.log(id);
     const request = async () => {
-      return await userService.GetObject(id);
+      return await CategoryService.GetObject(id);
     };
     request().then((res) => {
-      // console.log(res.data[0]);
+      console.log(res.data[0]);
       this.setState({
         form_data: {
-          id: res.data[0].id,
-          name: res.data[0].name,
-          last_name: res.data[0].last_name,
-          email: res.data[0].email,
-          username: res.data[0].username,
-          password: res.data[0].password,
-          role_id: res.data[0].role_id,
-          phone: res.data[0].phone,
+          cat_id: res.data[0].cat_id,
+          cat_name: res.data[0].cat_name,
+          cat_description: res.data[0].cat_description,
         },
       });
     });
@@ -166,7 +136,7 @@ class Users extends Component {
     let data = this.state.form_data;
     // console.log(data);
     const request = async () => {
-      return await userService.UpdateObject(data);
+      return await CategoryService.UpdateObject(data);
     };
     request().then((res) => {
       // console.log(res);
@@ -179,16 +149,16 @@ class Users extends Component {
   };
   ResetTableAndForm = (e) => {
     this.ClearForm(e);
-    this.GetListUsers(e);
+    this.GetList(e);
     document.querySelector(".btn-close").click();
   };
 
   DeleteObject = async (e) => {
     let id = e.target.getAttribute("data-id");
-    let username = e.target.getAttribute("data-username");
+    let cat_name = e.target.getAttribute("data-name");
     Swal.fire({
       title: `Estas seguro de elimnar a `,
-      text: username,
+      text: cat_name,
       icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -197,17 +167,13 @@ class Users extends Component {
       cancelButtonText: `Cancelar`,
     }).then((result) => {
       if (result.isConfirmed) {
-        // console.log(e.target);
-        // element = e.target
-        let id = e.target.getAttribute("data-id");
-        // console.log(id);
         const request = async () => {
-          return await userService.DeleteObject(id);
+          return await CategoryService.DeleteObject(id);
         };
         request().then((res) => {
           // console.log(res);
           Alert.Toast(res.alert_icon, res.alert_text);
-          this.GetListUsers(e);
+          this.GetList(e);
         });
       }
     });
@@ -217,22 +183,13 @@ class Users extends Component {
     e.persist();
     await this.setState({
       form_data: {
-        id: null,
-        name: null,
-        last_name: null,
-        email: null,
-        username: null,
-        password: null,
-        role_id: -1,
-        phone: null,
+        cat_id: null,
+        cat_name: null,
+        cat_description: null,
       },
     });
-    document.getElementById("role_id").value = this.state.form_data.role_id;
     // console.log(this.state.form_data);
   };
-  click() {
-    Alert.Toast("success", "Toast de prueba");
-  }
 
   render() {
     // console.log(this.state.form_data)
@@ -261,7 +218,7 @@ class Users extends Component {
                   onClick={this.ClearForm}
                 >
                   <i className="fa-solid fa-circle-plus"></i>&nbsp; AGREGAR
-                  USUARIO
+                  CATEGORIA
                 </button>
               </div>
               <div className="card-body">
@@ -279,8 +236,7 @@ class Users extends Component {
           <Form
             handleChange={this.handleChange}
             form_data={this.state.form_data}
-            roles={this.state.roles}
-            id={this.state.form_data.id}
+            id={this.state.form_data.cat_id}
             UpdateObject={this.UpdateObject}
             CreateObject={this.CreateObject}
             ClearForm={this.ClearForm}
@@ -290,4 +246,4 @@ class Users extends Component {
     );
   }
 }
-export default Users;
+export default Categories;

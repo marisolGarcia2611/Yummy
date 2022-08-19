@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
-import { RoleClass } from "../Models/RoleClass";
+import { RoleClass } from "../Models/RolesssClass";
 const Role = new RoleClass();
 const cookies = new Cookies();
 const API = "http://127.0.0.1:8000/api";
