@@ -13,7 +13,7 @@ function Search() {
                       
                       <div className="col-md-11">
                       <input className="form-control search__estruc" type="text"
-                          placeholder=" Search Courses"
+                          placeholder=" Search"
                           name="search"/>
                       </div>
 

@@ -5,15 +5,11 @@ import React,{Component,useState} from "react";
 import { Link } from "react-router-dom";
 import './App.css';
 import Navbar from "./componentes/Navbar";
-import iCafe1 from "./images/mocha.png";
 import iTea from './images/shaken-black-tea.png';
 import iCafe2 from './images/cajeta-frappuccino.png';
 import iSalado from './images/Sandwich Pavo Panela.png';
 import iSaladoH from './images/Grilled Cheese Sandwich.png';
 import iSaludable from './images/Ensalada Cesar.png';
-import perfil from './images/usuario.png';
-import trash__ico from './images/trash-fill.svg';
-import edit__ico from './images/icons8-edit (1).svg';
 import Card from "./componentes/Card";
 import Cookies from "universal-cookie";
 import BlockUI from "./componentes/BlockUI/BlockUI";
@@ -28,6 +24,18 @@ function Main() {
            {/* <Navbar/> */}
            <div className="image__nav">
            </div>
+
+
+            {/* PARA IR AL ADMINISTRATIVO */}
+
+           <div className="btn__adm">
+            <div className="">
+                <button type="button" className=" btn btn-outline-secondary">
+                    <b>Acceso Administrativo</b>
+                    </button>
+            </div>
+           </div>
+            
 
             <div className="position-relative">
 
@@ -49,8 +57,7 @@ function Main() {
                     <div id="spacephantom" className="col-md-2 spacephantom">
 
                     </div>
-                    <div id="space2" className="col-md-2 d-none d-md-block space2">
-                        
+                    <div id="space2" className="col-md-2 d-none d-md-block space2">                        
                         <h5>Categorias</h5> 
 
                         <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -98,16 +105,12 @@ function Main() {
                         </div>
                         </div>
                     
-                        <div>
-                         <button type="button" data-bs-toggle="modal" data-bs-target="#addModal" className=" card btn btn-warning text-center">
-                             <b>+ Añadir producto</b>
-                             </button>
-                        </div> 
+                         
                     </div>
                   
 
 
-
+{/* 
                             <div className="modal fade" id="addModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div className="modal-dialog ">
                                 <div className="modal-content modalLook">
@@ -175,7 +178,7 @@ function Main() {
                             </div>
                                 </div>
                             </div>
-                            </div>
+                            </div> */}
 
 
 
@@ -386,3 +389,4 @@ function uploadFile() {
        }
     });
 };
+

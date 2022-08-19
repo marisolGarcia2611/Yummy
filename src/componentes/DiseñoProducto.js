@@ -1,17 +1,11 @@
 import React,{Component} from "react";
-//Se importa Link de react router dom, que es el que hara la funcion
-//de lals etiquetas <a>, hara referencias a las rutas especficadas en App.js
-//Importar en cada archivo que se necesite
 import '../App.css';
-import Navbar from "./Navbar";
-import logo from '../yummy-dark.svg';
-import iCafe1 from "../images/mocha.png";
 import iCafe2 from "../images/cajeta-frappuccino.png";
 
 
 
 
-function DiseñoCafe() {
+function DiseñoProducto() {
      return (
       <section>
         <div className="space__stuct1">
@@ -26,8 +20,9 @@ function DiseñoCafe() {
             <br/>
             <div className="row">
                 <div className="col-md-4 input-group inp">
-                <button className="btn btn-dark" type="button" id="Recipient's username with two button addons">+</button>
-                <input type="text" className="form-control inp" placeholder="Cantidad" aria-label="Recipient's username" aria-describedby="Recipient's username with two button addons"/>
+                <button className="btn btn-dark"  id="add_address" onclick="addAddressLine()">+</button>
+                <input type="number" className="form-control inp" placeholder="Cantidad" aria-label="Recipient's username" aria-describedby="add_address"/>
+                
                
                 </div>        
             </div>
@@ -43,9 +38,41 @@ function DiseñoCafe() {
             </div>
 
         </div>
+        {/* <button id="agregar">add</button>
+        <div id="dinamic"></div> */}
 
     </section>
      
     );
   }
-export default DiseñoCafe;
+export default DiseñoProducto;
+// const contenedor = document.querySelector('#dinamic');
+// const btnAgregar = document.querySelector('#agregar');
+// let total = 1;
+// btnAgregar.addEventListener('click',e =>{
+//     let div = document.createElement('div');
+//     div.innerHTML = '<label>${total++}</label> - <input type="text" name="nombre[]" placeholder="Nombre required"/><button onClick="eliminar(this)">Eliminar</button>';
+//     contenedor.appendChild(div);
+// })
+
+// const eliminar=(e)=>{
+//     const divPadre = e.parentNode;
+//     contenedor.removeChild(divPadre);
+   
+// }
+
+
+// $('#btnAdd').on('click', function(){
+//     $('#contenido').append('<p>Hola Mundo!</p>');
+//   });
+
+//     var lineCount = 0;
+// addAddressLine = function () {
+//     var i = document.createElement('input');
+//     i.setAttribute("type", "text");
+//     i.setAttribute("placeholder", "Address Line " + ++lineCount);
+//     var addressContainer = document.getElementById("adress");
+//     addressContainer.appendChild(i);
+// }
+
+
