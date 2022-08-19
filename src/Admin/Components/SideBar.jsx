@@ -72,6 +72,7 @@ function SideBar() {
                   <i className="nav-icon fa-solid fa-folder-tree"></i>
                   <p>
                     PRODUCTOS
+                    {/* Aqui podria ser cocina */}
                     <i className="right fas fa-angle-left"></i>
                   </p>
                 </a>

@@ -45,8 +45,8 @@ class BranchOffices extends Component {
   };
 
   componentDidMount(e) {
-    this.GetListBranchOffices();
-    // this.GetListRoles();
+    this.GetListUsers();
+    this.GetListRoles();
     setTimeout(() => {
       this.SetDataTableStyle(e);
     }, 1500);
@@ -78,11 +78,11 @@ class BranchOffices extends Component {
     });
   }
 
-  GetListBranchOffices = async (e) => {
-    const branch_offices_request = async () => {
-      return await BranchOfficeService.GetList();
+  GetListUsers = async (e) => {
+    const users_request = async () => {
+      return await userService.GetList();
     };
-    branch_offices_request().then((res) => {
+    users_request().then((res) => {
       // console.log(res)
       this.setState({
         registers: res.data,
@@ -90,17 +90,17 @@ class BranchOffices extends Component {
     });
   };
 
-  // GetListRoles = (e) => {
-  //   const roles_request = async () => {
-  //     return await roleService.GetList();
-  //   };
-  //   roles_request().then((res) => {
-  //     // console.log(res.data)
-  //     this.setState({
-  //       roles: res.data,
-  //     });
-  //   });
-  // };
+  GetListRoles = (e) => {
+    const roles_request = async () => {
+      return await roleService.GetList();
+    };
+    roles_request().then((res) => {
+      // console.log(res.data)
+      this.setState({
+        roles: res.data,
+      });
+    });
+  };
 
   handleChange = async (e) => {
     e.persist();
@@ -118,7 +118,7 @@ class BranchOffices extends Component {
     let data = this.state.form_data;
     // console.log(data);
     const request = async () => {
-      return await BranchOfficeService.CreateObject(data);
+      return await userService.CreateObject(data);
     };
     request().then((res) => {
       // console.log(res);
@@ -136,18 +136,20 @@ class BranchOffices extends Component {
     let id = e.target.getAttribute("data-id");
     // console.log(id);
     const request = async () => {
-      return await BranchOfficeService.GetObject(id);
+      return await userService.GetObject(id);
     };
     request().then((res) => {
       // console.log(res.data[0]);
       this.setState({
         form_data: {
-          bo_id: res.data[0].bo_id,
-          bo_name: res.data[0].bo_name,
-          bo_country: res.data[0].bo_country,
-          bo_state: res.data[0].bo_state,
-          bo_city: res.data[0].bo_city,
-          bo_address: res.data[0].bo_address,
+          id: res.data[0].id,
+          name: res.data[0].name,
+          last_name: res.data[0].last_name,
+          email: res.data[0].email,
+          username: res.data[0].username,
+          password: res.data[0].password,
+          role_id: res.data[0].role_id,
+          phone: res.data[0].phone,
         },
       });
     });
@@ -158,7 +160,7 @@ class BranchOffices extends Component {
     let data = this.state.form_data;
     // console.log(data);
     const request = async () => {
-      return await BranchOfficeService.UpdateObject(data);
+      return await userService.UpdateObject(data);
     };
     request().then((res) => {
       // console.log(res);
@@ -171,16 +173,16 @@ class BranchOffices extends Component {
   };
   ResetTableAndForm = (e) => {
     this.ClearForm(e);
-    this.GetListBranchOffices(e);
+    this.GetListUsers(e);
     document.querySelector(".btn-close").click();
   };
 
   DeleteObject = async (e) => {
     let id = e.target.getAttribute("data-id");
-    let sucursal = e.target.getAttribute("data-name");
+    let username = e.target.getAttribute("data-username");
     Swal.fire({
       title: `Estas seguro de elimnar a `,
-      text: sucursal,
+      text: username,
       icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -194,12 +196,12 @@ class BranchOffices extends Component {
         let id = e.target.getAttribute("data-id");
         // console.log(id);
         const request = async () => {
-          return await BranchOfficeService.DeleteObject(id);
+          return await userService.DeleteObject(id);
         };
         request().then((res) => {
           // console.log(res);
           Alert.Toast(res.alert_icon, res.alert_text);
-          this.GetListBranchOffices(e);
+          this.GetListUsers(e);
         });
       }
     });
@@ -209,16 +211,17 @@ class BranchOffices extends Component {
     e.persist();
     await this.setState({
       form_data: {
-        bo_id: null,
-        bo_name: null,
-        bo_country: null,
-        bo_state: null,
-        bo_city: null,
-        bo_address: null,
-        bo_active: true,
+        id: null,
+        name: null,
+        last_name: null,
+        email: null,
+        username: null,
+        password: null,
+        role_id: -1,
+        phone: null,
       },
     });
-    document.getElementById("bo_id").value = this.state.form_data.bo_id;
+    document.getElementById("role_id").value = this.state.form_data.role_id;
     // console.log(this.state.form_data);
   };
 
@@ -267,7 +270,8 @@ class BranchOffices extends Component {
           <Form
             handleChange={this.handleChange}
             form_data={this.state.form_data}
-            id={this.state.form_data.bo_id}
+            roles={this.state.roles}
+            id={this.state.form_data.id}
             UpdateObject={this.UpdateObject}
             CreateObject={this.CreateObject}
             ClearForm={this.ClearForm}

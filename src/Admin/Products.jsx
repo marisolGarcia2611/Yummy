@@ -1,56 +1,49 @@
 import { React, Component, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import logo from "../images/yummy.svg";
-import perfil from "../images/usuario.png";
 import HeaderPage from "./Components/HeaderPage";
 import Admin from ".";
 import Cookies from "universal-cookie";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { AlertClass } from "../AlertClass";
-import { FormClass, BranchOfficeService } from "./Services/BranchOfficeService";
-import { BranchOfficesClass, Table, Form } from "./Models/BranchOfficeClass";
+import { ProductClass, Table, Form } from "./Models/ProductClass";
+import { ProductServiceClass } from "./Services/ProductService";
 
 const MySwal = withReactContent(Swal);
-// const User = new UserClass();
-// const userService = new UserService();
+const Product = new ProductClass();
+const ProductService = new ProductServiceClass();
+
 const cookies = new Cookies();
 const Alert = new AlertClass();
-const current_folder = "Administación";
-const current_page = "Sucursales";
-const icon_page = "fa-solid fa-store";
+const current_folder = "Productos"
+const current_page = "Productos";
+const icon_page = "fa-solid fa-cup-togo";
+// const icon_page = "fa-solid fa-user-tie";
 
-class BranchOffices extends Component {
+export default class Products extends Component {
   state = {
     theads: [
-      { name: "Sucursal" },
-      { name: "ciudad" },
-      { name: "Estado" },
-      { name: "Pais" },
-      { name: "Dirección" },
+      { name: "Producto" },
+      { name: "Categoría" },
+      { name: "Precio" },
       { name: "Acciones" },
     ],
     registers: [],
     form_data: {
-      bo_id: null,
-      bo_name: null,
-      bo_city: null,
-      bo_state: null,
-      bo_country: null,
-      bo_address: null,
+      pro_id: null,
+      pro_name: null,
+      pro_cat_id: null,
+      pro_price: null,
     },
-    countries: [],
-    states: [],
-    cities: [],
   };
 
   componentDidMount(e) {
-    this.GetListBranchOffices();
-    // this.GetListRoles();
+    this.GetList();
     setTimeout(() => {
       this.SetDataTableStyle(e);
     }, 1500);
   }
+
+
 
   SetDataTableStyle(e) {
     let tabla;
@@ -78,29 +71,17 @@ class BranchOffices extends Component {
     });
   }
 
-  GetListBranchOffices = async (e) => {
-    const branch_offices_request = async () => {
-      return await BranchOfficeService.GetList();
+  GetList = async (e) => {
+    const users_request = async () => {
+      return await ProductService.GetList();
     };
-    branch_offices_request().then((res) => {
+    users_request().then((res) => {
       // console.log(res)
       this.setState({
         registers: res.data,
       });
     });
   };
-
-  // GetListRoles = (e) => {
-  //   const roles_request = async () => {
-  //     return await roleService.GetList();
-  //   };
-  //   roles_request().then((res) => {
-  //     // console.log(res.data)
-  //     this.setState({
-  //       roles: res.data,
-  //     });
-  //   });
-  // };
 
   handleChange = async (e) => {
     e.persist();
@@ -109,6 +90,7 @@ class BranchOffices extends Component {
         ...this.state.form_data,
         [e.target.name]: e.target.value,
       },
+
     });
     // console.log(this.state.form_data)
   };
@@ -118,7 +100,7 @@ class BranchOffices extends Component {
     let data = this.state.form_data;
     // console.log(data);
     const request = async () => {
-      return await BranchOfficeService.CreateObject(data);
+      return await ProductService.CreateObject(data);
     };
     request().then((res) => {
       // console.log(res);
@@ -136,18 +118,14 @@ class BranchOffices extends Component {
     let id = e.target.getAttribute("data-id");
     // console.log(id);
     const request = async () => {
-      return await BranchOfficeService.GetObject(id);
+      return await ProductService.GetObject(id);
     };
     request().then((res) => {
       // console.log(res.data[0]);
       this.setState({
         form_data: {
-          bo_id: res.data[0].bo_id,
-          bo_name: res.data[0].bo_name,
-          bo_country: res.data[0].bo_country,
-          bo_state: res.data[0].bo_state,
-          bo_city: res.data[0].bo_city,
-          bo_address: res.data[0].bo_address,
+          pro_id: res.data[0].pro_id,
+          pro_name: res.data[0].pro_name,
         },
       });
     });
@@ -158,7 +136,7 @@ class BranchOffices extends Component {
     let data = this.state.form_data;
     // console.log(data);
     const request = async () => {
-      return await BranchOfficeService.UpdateObject(data);
+      return await ProductService.UpdateObject(data);
     };
     request().then((res) => {
       // console.log(res);
@@ -171,16 +149,16 @@ class BranchOffices extends Component {
   };
   ResetTableAndForm = (e) => {
     this.ClearForm(e);
-    this.GetListBranchOffices(e);
+    this.GetList(e);
     document.querySelector(".btn-close").click();
   };
 
   DeleteObject = async (e) => {
     let id = e.target.getAttribute("data-id");
-    let sucursal = e.target.getAttribute("data-name");
+    let producto = e.target.getAttribute("data-name");
     Swal.fire({
       title: `Estas seguro de elimnar a `,
-      text: sucursal,
+      text: producto,
       icon: "question",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -189,17 +167,13 @@ class BranchOffices extends Component {
       cancelButtonText: `Cancelar`,
     }).then((result) => {
       if (result.isConfirmed) {
-        // console.log(e.target);
-        // element = e.target
-        let id = e.target.getAttribute("data-id");
-        // console.log(id);
         const request = async () => {
-          return await BranchOfficeService.DeleteObject(id);
+          return await ProductService.DeleteObject(id);
         };
         request().then((res) => {
           // console.log(res);
           Alert.Toast(res.alert_icon, res.alert_text);
-          this.GetListBranchOffices(e);
+          this.GetList(e);
         });
       }
     });
@@ -209,16 +183,10 @@ class BranchOffices extends Component {
     e.persist();
     await this.setState({
       form_data: {
-        bo_id: null,
-        bo_name: null,
-        bo_country: null,
-        bo_state: null,
-        bo_city: null,
-        bo_address: null,
-        bo_active: true,
+        pro_id: null,
+        pro_name: null,
       },
     });
-    document.getElementById("bo_id").value = this.state.form_data.bo_id;
     // console.log(this.state.form_data);
   };
 
@@ -230,11 +198,7 @@ class BranchOffices extends Component {
         {/* <!-- Content Wrapper. Contenido de la pagina --> */}
         <div className="content-wrapper">
           {/* <!-- Content Header (Encabezado en el contenido de la pagina) --> */}
-          <HeaderPage
-            icon_page={icon_page}
-            current_folder={current_folder}
-            current_page={current_page}
-          />
+          <HeaderPage icon_page={icon_page} current_folder={current_folder} current_page={current_page} />
 
           {/* <!-- Main content --> */}
           <div className="content">
@@ -249,7 +213,7 @@ class BranchOffices extends Component {
                   onClick={this.ClearForm}
                 >
                   <i className="fa-solid fa-circle-plus"></i>&nbsp; AGREGAR
-                  SUCURSAL
+                  PRODUCTO
                 </button>
               </div>
               <div className="card-body">
@@ -264,17 +228,15 @@ class BranchOffices extends Component {
           </div>
 
           {/* <!-- Modal Usuario --> */}
-          <Form
+          <Form 
             handleChange={this.handleChange}
             form_data={this.state.form_data}
-            id={this.state.form_data.bo_id}
+            id={this.state.form_data.pro_id}
             UpdateObject={this.UpdateObject}
             CreateObject={this.CreateObject}
-            ClearForm={this.ClearForm}
-          />
+            ClearForm={this.ClearForm}/>
         </div>
       </>
     );
   }
 }
-export default BranchOffices;

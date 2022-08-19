@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 
-export class ProductClass {
+export class BranchOfficeClass {
   constructor() {
-    this.pro_id = null;
-    this.pro_name = null,
-    this.pro_cat_id = null,
-    this.pro_price = null,  
-    this.pro_active = true;
+    this.bo_id = null;
+    this.bo_name = null,
+    this.bo_country = null,
+    this.bo_state = null,
+    this.bo_city = null,
+    this.bo_address = null,  
+    this.bo_active = true;
 
     this.created_at = new Date();
     this.updated_at = null;
@@ -35,7 +37,7 @@ export class Table extends Component {
               {/* {console.log(this.props.data)} */}
               {this.props.data.map((d) => (
                 <tr>
-                  <td>{d.pro_name}</td>
+                  <td>{d.bo_name}</td>
                   <td>
                     <div className="btn-group">
                       <button
@@ -44,28 +46,28 @@ export class Table extends Component {
                         onClick={this.props.UpdateObject}
                         data-bs-toggle="modal"
                         data-bs-target="#modal"
-                        data-id={d.pro_id}
+                        data-id={d.bo_id}
                       >
                         <i
                           className="far fa-edit"
                           onClick={this.props.UpdateObject}
                           data-bs-toggle="modal"
                           data-bs-target="#modal"
-                          data-id={d.pro_id}
+                          data-id={d.bo_id}
                         ></i>
                       </button>
                       <button
                         type="button"
                         className="btn btn-danger"
                         onClick={this.props.DeleteObject}
-                        data-id={d.pro_id}
-                        data-name={d.pro_name}
+                        data-id={d.bo_id}
+                        data-name={d.bo_name}
                       >
                         <i
                           className="far fa-trash"
                           onClick={this.props.DeleteObject}
-                          data-id={d.pro_id}
-                          data-name={d.pro_name}
+                          data-id={d.bo_id}
+                          data-name={d.bo_name}
                         ></i>
                       </button>
                     </div>
@@ -86,7 +88,7 @@ export class Table extends Component {
     );
   }
 }
-let product = new ProductClass();
+let branchOffice = new BranchOfficeClass();
 export class Form extends Component {
   componentDidMount() {}
 
@@ -106,7 +108,7 @@ export class Form extends Component {
               <div className="modal-header">
                 <h5 className="modal-title fw-bold" id="modalLabel">
                   <i className="fa-solid fa-user-plus"></i>&nbsp; REGISTRAR
-                  PRODUCTO
+                  SUCURSAL
                 </h5>
                 <button
                   type="button"
@@ -135,46 +137,67 @@ export class Form extends Component {
                     onChange={this.props.handleChange}
                   />
                   <div className="mb-3 col-12">
-                    <label htmlFor="pro_name" className="form-label">
-                      Producto: <span className="span_campo_obligatorio" />
+                    <label htmlFor="bo_name" className="form-label">
+                      Sucursal: <span className="span_campo_obligatorio" />
                     </label>
                     <input
                       type="text"
                       className="form-control"
-                      id="pro_name"
-                      name="pro_name"
-                      defaultValue={this.props.form_data.pro_name}
+                      id="bo_name"
+                      name="bo_name"
+                      defaultValue={this.props.form_data.bo_name}
                       onChange={this.props.handleChange}
                     />
                   </div>
                   <div className="mb-3 col-12">
-                    <label htmlFor="cat_id" className="form-label">
-                      Categoria: <span className="span_campo_obligatorio" />
-                    </label>
-                    <select
-                        className="select2 form-control select-control"
-                        style={{ width: "100%" }}
-                        aria-label="Default select example"
-                        id="cat_id"
-                        name="cat_id"
-                        onChange={this.props.handleChange}
-                      >
-                        <option value="-1">Selecciona una opción...</option>
-                        {this.props.categories.map((category) => (
-                          <option value={category.cat_id}>{category.cat_name}</option>
-                        ))}
-                      </select>
-                  </div>
-                  <div className="mb-3 col-12">
-                    <label htmlFor="pro_price" className="form-label">
-                      Precio: <span className="span_campo_obligatorio" />
+                    <label htmlFor="bo_country" className="form-label">
+                      País: <span className="span_campo_obligatorio" />
                     </label>
                     <input
-                      type="number"
+                      type="text"
                       className="form-control"
-                      id="pro_price"
-                      name="pro_price"
-                      defaultValue={this.props.form_data.pro_price}
+                      id="bo_country"
+                      name="bo_country"
+                      defaultValue={this.props.form_data.bo_country}
+                      onChange={this.props.handleChange}
+                    />
+                  </div>
+                  <div className="mb-3 col-12">
+                    <label htmlFor="bo_state" className="form-label">
+                      Estado: <span className="span_campo_obligatorio" />
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="bo_state"
+                      name="bo_state"
+                      defaultValue={this.props.form_data.bo_state}
+                      onChange={this.props.handleChange}
+                    />
+                  </div>
+                  <div className="mb-3 col-12">
+                    <label htmlFor="bo_city" className="form-label">
+                      Ciudad: <span className="span_campo_obligatorio" />
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="bo_city"
+                      name="bo_city"
+                      defaultValue={this.props.form_data.bo_city}
+                      onChange={this.props.handleChange}
+                    />
+                  </div>
+                  <div className="mb-3 col-12">
+                    <label htmlFor="bo_address" className="form-label">
+                      Dirección: <span className="span_campo_obligatorio" />
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="bo_address"
+                      name="bo_address"
+                      defaultValue={this.props.form_data.bo_address}
                       onChange={this.props.handleChange}
                     />
                   </div>

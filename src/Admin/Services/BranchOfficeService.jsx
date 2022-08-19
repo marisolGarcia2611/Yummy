@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { AlertClass } from "../../AlertClass";
-import { ProductClass } from "../Models/ProductClass";
+import { BranchOfficeClass } from "../Models/BranchOfficeClass";
 
 const Alert = new AlertClass();
-const Product = new ProductClass();
+const BranchOficce = new BranchOfficeClass();
 const cookies = new Cookies();
 const API = "http://127.0.0.1:8000/api";
 
@@ -19,10 +19,10 @@ const axiosInstance = axios.create({
   },
 });
 
-export class ProductServiceClass {
+export class BranchOfficeServiceClass {
   GetList() {
     return axiosInstance
-    .get(`/products`, {})
+    .get(`/branch_offices`, {})
     .then((res) => res)
     .then((d) => d.data)
     .catch((response) => {
@@ -34,7 +34,7 @@ export class ProductServiceClass {
 
   GetObject(id) {
     return axiosInstance
-    .get(`/products/${id}`, {})
+    .get(`/branch_offices/${id}`, {})
     .then((res) => res)
     .then((d) => d.data)
     .catch((response) => {
@@ -46,7 +46,7 @@ export class ProductServiceClass {
   CreateObject(data_object) {
     // console.log(`el objeto: ${data_object}`);
     return axiosInstance
-    .post(`/products`, data_object)
+    .post(`/branch_offices`, data_object)
     .then((res) => res)
     .then((d) => d.data)
     .catch((response) => {
@@ -57,7 +57,7 @@ export class ProductServiceClass {
 
   UpdateObject(data_object) {
     return axiosInstance
-    .put(`/products`, data_object)
+    .put(`/branch_offices`, data_object)
     .then((res) => res)
     .then((d) => d.data)
     .catch((response) => {
@@ -69,7 +69,7 @@ export class ProductServiceClass {
   DeleteObject(id) {
     // console.log(id)
     return axiosInstance
-    .delete(`/products/${id}`, {})
+    .delete(`/branch_offices/${id}`, {})
     .then((res) => res)
     .then((d) => d.data)
     .catch((response) => {
