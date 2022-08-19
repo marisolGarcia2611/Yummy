@@ -2,6 +2,9 @@
 // 'use strict';
 // $(document).ready(() => {
 
+import axios from "axios";
+import BlockUI from "./componentes/BlockUI/BlockUI";
+import { Swal, Toast} from "sweetalert2";
 // });
 
 //#region RUTAS AL APP DE LOS MODELOS
@@ -15,8 +18,8 @@ const
 
 
 /*Select2*/
-$.fn.select2.defaults.set('language', 'es');
-moment.locale('es');
+// $.fn.select2.defaults.set('language', 'es');
+// moment.locale('es');
 
 
 
@@ -45,6 +48,71 @@ function focusSelect2(select2) {
 
 
 /* --- FUNCIONES DE CAJON--- */
+export async function Request(...props) {
+   console.log("🚀 ~ file: funciones_globales.jsx ~ line 52 ~ Request ~ props", props)
+   // BlockUI
+   
+   // const request = async () => {
+      console.log("ahora los props");
+      console.log(props);
+      await axios({
+         method: props.method,
+         url: props.url,
+         // headers: {'Authorization': `Bearer ${props.token}`},
+         data: props.data,
+         type: props.type
+      })
+      .then (axiosResponse => {
+         console.log("jkhadklhsajkdsa");
+         let dataResponse = axiosResponse.response
+         mostrarToast("success", dataResponse)
+      })
+      .catch (axiosResponse => {
+         let { message } = axiosResponse.response.data.errors
+         mostrarToast("Error", message[0])
+      })
+      .then (axiosResponse => { //el Finally
+         mostrarToast("success", "FIN")
+      })
+   // }
+}
+
+export function GETRequest(url) {
+   useEffect(() => {
+     // const [post, setPost] = React.useState(null);
+ 
+     // headers: { Authorization: `Bearer Bearer 4|K32hYx2YAfR0JkOHeECE1mOcwQ0K4xfPDHV7bfDW`}//${cookies.get("Authorization")}` }
+     const request = async () => {
+       return await axiosInstance
+         .get(`/${url}`)
+         .catch((response) => {
+           let objResponse = response.data;
+ 
+           throw new Error(message[0]);
+           
+         });
+     };
+     request().then((res) => {
+       // setCategorias(res.data.data)
+       console.log(res.data.data);
+     });
+   }, []);
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 function peticionRegistrarEditar(url,datos,funcion_success) {
    $.ajax({
       type: "POST",
@@ -242,7 +310,7 @@ function peticionEliminarObjeto(titulo,texto,url,datos) {
    });
 }
 
-function mostrarToast(icono, mensaje, posicion) {
+export function mostrarToast(icono, mensaje, posicion) {
    if (posicion == null) {posicion = 'top-end'}
    const Toast = Swal.mixin({
       toast: true,
@@ -258,7 +326,7 @@ function mostrarToast(icono, mensaje, posicion) {
 
    Toast.fire({icon: icono, title: mensaje})
 }
-function mostrarBlockOutCargando(title) {
+export function mostrarBlockOutCargando(title) {
    if (title == null) {title= 'Cargando...'}
    Swal.fire({
       title: title,
@@ -271,7 +339,7 @@ function mostrarBlockOutCargando(title) {
       }
    })
 }
-function mostrarBlockOutListo() {
+export function mostrarBlockOutListo() {
    Swal.fire({
       title: "LISTO!",
       timer: 500,
@@ -329,7 +397,7 @@ function formatearFechaHoraNormal(la_fecha) {
 }
 /* --- FUNCIONES DE CAJON--- */
 
-
+/*
 //VALIDAR RANGO DE FECHAS
 function validarRangoFechas(accion) {
    let
@@ -384,6 +452,7 @@ function resetearSelect2(select2,url,datos) {
 }
 /* ------ RELLENAR SELECTS 2 ------ */
 
+/*
 // Select2 Padre
 function rellenarSelect2(url,datos,id_activo,nombre_select) {
    $.ajax({
@@ -424,23 +493,20 @@ function rellenarSelect2Padre(ajaxResponse,id_activo) {
 
    input_id_padre.html("");
 
-   let opciones = /*HTML*/ `
+   let opciones = /*HTML*/ 
+   /*`
       <option value="-1">Selecciona una opción</option>
    `;
 
    if (id_activo == 0) {
-      opciones += /*HTML*/ `
+      opciones += /*HTML*/ 
+      /*`
          <option value="0" selected>*** Módulo Padre ***</option>
       `;
       input_url.attr('readonly', true);
       input_url.val('#');
       input_descripcion.focus();
-   } else {
-      opciones += /*HTML*/ `
-         <option value="0">*** Módulo Padre ***</option>
-      `;
-      input_url.attr('readonly', false);
-   }
+   } 
 
 
    input_id_padre.append(opciones);
@@ -459,7 +525,8 @@ function rellenarSelect2Perfiles(ajaxResponse,id_activo) {
 
    input_id_perfil.html("");
 
-   let opciones = /*HTML*/ `
+   let opciones = /*HTML*/ 
+   /*`
       <option value="-1">Selecciona una opción</option>
    `;
 
@@ -528,7 +595,7 @@ function rellenarSelect2Perfiles(ajaxResponse,id_activo) {
 
 
 /* FUNCIONES LOGIN */
-function keyInicia(){
+/*function keyInicia(){
    if (window.event.keyCode == 13) {
      IniciaSesion();
    }
@@ -574,5 +641,5 @@ function keyInicia(){
    }
  }
 
-
-export {mostrarToast, mostrarBlockOutCargando}
+*/
+// export {mostrarToast, mostrarBlockOutCargando}

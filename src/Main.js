@@ -1,4 +1,4 @@
-import React,{Component} from "react";
+import React,{Component,useState} from "react";
 //Se importa Link de react router dom, que es el que hara la funcion
 //de lals etiquetas <a>, hara referencias a las rutas especficadas en App.js
 //Importar en cada archivo que se necesite
@@ -11,12 +11,17 @@ import iSalado from './images/Sandwich Pavo Panela.png';
 import iSaladoH from './images/Grilled Cheese Sandwich.png';
 import iSaludable from './images/Ensalada Cesar.png';
 import Card from "./componentes/Card";
+import Cookies from "universal-cookie";
+import BlockUI from "./componentes/BlockUI/BlockUI";
+
 
 
 function Main() {
-     return (
+    const [block, setBlock] = useState(false)
+    return (
        <section>
-           <Navbar/>
+                <BlockUI blocking={block}/>
+           {/* <Navbar/> */}
            <div className="image__nav">
            </div>
 
@@ -341,27 +346,27 @@ export default Main;
 window.onscroll = function() {
     //console.log(window.scrollY);
     if (window.scrollY >= 571){
-      document.getElementById("space2").style.position = "fixed";
-      document.getElementById("space2").style.top = "0%";
-      document.getElementById("space2").style.marginLeft = "10px";
-      document.getElementById("spacephantom").style.display = "block";
+      $("#space2").style.position = "fixed";
+      $("#space2").style.top = "0%";
+      $("#space2").style.marginLeft = "10px";
+      $("#spacephantom").style.display = "block";
     }else {
-        document.getElementById("space2").style.position = "relative";
-        document.getElementById("space2").style.marginLeft = "10px";
-      document.getElementById("space2").style.marginBottom = "20px";
-      document.getElementById("space2").style.marginTop = "35px";
-      document.getElementById("spacephantom").style.display = "none";
+        $("#space2").style.position = "relative";
+        $("#space2").style.marginLeft = "10px";
+      $("#space2").style.marginBottom = "20px";
+      $("#space2").style.marginTop = "35px";
+      $("#spacephantom").style.display = "none";
     }
 
     if (window.scrollY >= 491){
-        document.getElementById("nav1").style.position = "fixed";
-        document.getElementById("nav1").style.zIndex = "5";
-        document.getElementById("nav1").style.top = "0";
-        document.getElementById("nav1").style.borderRadius = "20px";
-        document.getElementById("nav1").style.backgroundColor = "rgb(216, 216, 216)";
+        $("#nav1").style.position = "fixed";
+        $("#nav1").style.zIndex = "5";
+        $("#nav1").style.top = "0";
+        $("#nav1").style.borderRadius = "20px";
+        $("#nav1").style.backgroundColor = "rgb(216, 216, 216)";
     }else{
-        document.getElementById("nav1").style.position = "relative";
-        document.getElementById("nav1").style.backgroundColor = "rgba(30, 192, 192, 0.0)";
+        $("#nav1").style.position = "relative";
+        $("#nav1").style.backgroundColor = "rgba(30, 192, 192, 0.0)";
     }
 
 };

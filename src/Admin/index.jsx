@@ -11,13 +11,12 @@ import { mostrarBlockOutCargando, mostrarToast } from "../funciones_globales"
 import Inventory from "./Inventory";
 import Recipes from "./Recipes";
 
-function Admin() {
+function Admin(props) {
    return (
       <section>
          <NavBar/>
-         <SideBar />
-         {/* <Inventory /> */}
-         <Recipes/>
+         <SideBar/>
+         {props.component}
          {/* <Users toast={mostrarToast} block={mostrarBlockOutCargando}/> */}
       </section>
    )
