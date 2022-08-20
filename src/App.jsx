@@ -16,7 +16,7 @@ body[0].classList =
   "hold-transition sidebar-mini layout-fixed layout-navbar-fixed text-sm";
 import Ordenes from "./Ordenes";
 import Carrito from "./Carrito";
-import Navbar from "./Navbar";
+import Navbar from "./componentes/Navbar";
 import { ProtectedRoute } from "./componentes/ProtectedRoute";
 import { AuthProvider } from "./context/authContext";
 import Users from "./Admin/Users";
