@@ -153,7 +153,7 @@ export class Form extends Component {
                       onChange={this.props.handleChange}
                     />
                   </div>
-                  <div className="mb-3 col-12">
+                  <div className="mb-3 col-6">
                     <label htmlFor="bo_country" className="form-label">
                       País: <span className="span_campo_obligatorio" />
                     </label>
@@ -166,7 +166,7 @@ export class Form extends Component {
                       onChange={this.props.handleChange}
                     />
                   </div>
-                  <div className="mb-3 col-12">
+                  <div className="mb-3 col-6">
                     <label htmlFor="bo_state" className="form-label">
                       Estado: <span className="span_campo_obligatorio" />
                     </label>
@@ -179,7 +179,7 @@ export class Form extends Component {
                       onChange={this.props.handleChange}
                     />
                   </div>
-                  <div className="mb-3 col-12">
+                  <div className="mb-3 col-6">
                     <label htmlFor="bo_city" className="form-label">
                       Ciudad: <span className="span_campo_obligatorio" />
                     </label>
@@ -192,7 +192,7 @@ export class Form extends Component {
                       onChange={this.props.handleChange}
                     />
                   </div>
-                  <div className="mb-3 col-12">
+                  <div className="mb-3 col-6">
                     <label htmlFor="bo_address" className="form-label">
                       Dirección: <span className="span_campo_obligatorio" />
                     </label>

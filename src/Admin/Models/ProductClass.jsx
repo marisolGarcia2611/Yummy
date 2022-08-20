@@ -147,7 +147,7 @@ export class Form extends Component {
                       onChange={this.props.handleChange}
                     />
                   </div>
-                  <div className="mb-3 col-12">
+                  <div className="mb-3 col-6">
                     <label htmlFor="cat_id" className="form-label">
                       Categoria: <span className="span_campo_obligatorio" />
                     </label>
@@ -165,7 +165,7 @@ export class Form extends Component {
                         ))}
                       </select>
                   </div>
-                  <div className="mb-3 col-12">
+                  <div className="mb-3 col-6">
                     <label htmlFor="pro_price" className="form-label">
                       Precio: <span className="span_campo_obligatorio" />
                     </label>
