@@ -117,6 +117,9 @@ class BranchOffices extends Component {
     // element = e.target
     let data = this.state.form_data;
     // console.log(data);
+    if (!validar) {
+      return
+    }
     const request = async () => {
       return await BranchOfficeService.CreateObject(data);
     };
@@ -175,8 +178,21 @@ class BranchOffices extends Component {
         msg = 'Por favor, introduce un nombre';
         hayError = true;
       }
-      if (data.bo_country == '' || data.pro_price == '0.00') {
-        msg = 'Por favor, introduce un precio valido';
+      if (data.bo_country == '') {
+        msg = 'Por favor, introduce un país';
+        hayError = true;
+      }
+      if (data.bo_state = '') {
+        msg = "Por favor, introduce un estado";
+        hayError = true;
+      }
+      if (data.bo_city = '') {
+        msg = "Por favor, introduce una ciudad";
+        hayError = true;
+      }
+      if (data.bo_address = '') {
+        msg = "Por favor, introduce una dirección";
+        hayError = true;
       }
       if (hayError) {
           Swal.fire({
