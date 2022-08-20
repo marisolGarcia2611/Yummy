@@ -45,6 +45,29 @@ class Categories extends Component {
     }, 1500);
   }
 
+  validar(data) {
+    let msg = ''
+    let hayError = false
+    if (data.cat_name == '') {
+      msg = 'Por favor, introduce un nombre';
+      hayError = true;
+    }
+    if (data.cat_description == '') {
+      msg = 'Por favor, introduce una descripción';
+      hayError=true
+    }
+    if (hayError) {
+        Swal.fire({
+          title: "Error",
+          text: msg,
+          icon: 'error'
+        })
+      return ({msg:msg, hayError:false});
+    }
+    return true;
+  };
+
+
   SetDataTableStyle(e) {
     let tabla;
 
@@ -98,7 +121,10 @@ class Categories extends Component {
     // element = e.target
     let data = this.state.form_data;
     // console.log(data);
-    if (!validar) {
+    let ajas = this.validar(data)
+    console.log("🚀 ~ file: Categories.jsx ~ line 125 ~ Categories ~ CreateObject= ~ ajas", ajas)
+    if (ajas==false) {
+      Alert.Toast("error","sass")
       return
     }
     const request = async () => {
@@ -149,26 +175,7 @@ class Categories extends Component {
       Alert.Toast(res.alert_icon, res.alert_text);
       this.ResetTableAndForm(e);
     });
-    const validar = (data) => {
-      msg = ''
-      hayError = false
-      if (data.cat_name == '') {
-        msg = 'Por favor, introduce un nombre';
-        hayError = true;
-      }
-      if (data.cat_description == '') {
-        msg = 'Por favor, introduce una descripción';
-      }
-      if (hayError) {
-          Swal.fire({
-            title: "Error",
-            text: msg,
-            icon: 'error'
-          })
-        return false;
-      }
-      return true;
-    };
+    validar(data)
   };
   ResetTableAndForm = (e) => {
     this.ClearForm(e);
@@ -213,6 +220,8 @@ class Categories extends Component {
     });
     // console.log(this.state.form_data);
   };
+
+  
 
   render() {
     // console.log(this.state.form_data)
