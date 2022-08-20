@@ -124,7 +124,7 @@ class Categories extends Component {
     let ajas = this.validar(data)
     console.log("🚀 ~ file: Categories.jsx ~ line 125 ~ Categories ~ CreateObject= ~ ajas", ajas)
     if (ajas==false) {
-      Alert.Toast("error","sass")
+      Alert.Toast("error","Introduce datos correctos")
       return
     }
     const request = async () => {

@@ -52,6 +52,41 @@ class BranchOffices extends Component {
     }, 1500);
   }
 
+validar(data) {
+    let msg = ''
+    let hayError = false
+    if (data.bo_name == '') {
+        msg = 'Por favor, introduce un nombre';
+        hayError = true;
+      }
+      if (data.bo_country == '') {
+        msg = 'Por favor, introduce un país';
+        hayError = true;
+      }
+      if (data.bo_state = '') {
+        msg = "Por favor, introduce un estado";
+        hayError = true;
+      }
+      if (data.bo_city = '') {
+        msg = "Por favor, introduce una ciudad";
+        hayError = true;
+      }
+      if (data.bo_address = '') {
+        msg = "Por favor, introduce una dirección";
+        hayError = true;
+      }
+    if (hayError) {
+        Swal.fire({
+          title: "Error",
+          text: msg,
+          icon: 'error'
+        })
+      return ({msg:msg, hayError:false});
+    }
+    return true;
+  };
+
+
   SetDataTableStyle(e) {
     let tabla;
 
@@ -117,7 +152,10 @@ class BranchOffices extends Component {
     // element = e.target
     let data = this.state.form_data;
     // console.log(data);
-    if (!validar) {
+    let ajas = this.validar(data)
+    console.log("🚀 ~ file: Categories.jsx ~ line 125 ~ Categories ~ CreateObject= ~ ajas", ajas)
+    if (ajas==false) {
+      Alert.Toast("error","Introduce datos correctos")
       return
     }
     const request = async () => {
@@ -171,39 +209,7 @@ class BranchOffices extends Component {
       Alert.Toast(res.alert_icon, res.alert_text);
       this.ResetTableAndForm(e);
     });
-    const validar = (data) => {
-      msg = ''
-      hayError = false
-      if (data.bo_name == '') {
-        msg = 'Por favor, introduce un nombre';
-        hayError = true;
-      }
-      if (data.bo_country == '') {
-        msg = 'Por favor, introduce un país';
-        hayError = true;
-      }
-      if (data.bo_state = '') {
-        msg = "Por favor, introduce un estado";
-        hayError = true;
-      }
-      if (data.bo_city = '') {
-        msg = "Por favor, introduce una ciudad";
-        hayError = true;
-      }
-      if (data.bo_address = '') {
-        msg = "Por favor, introduce una dirección";
-        hayError = true;
-      }
-      if (hayError) {
-          Swal.fire({
-            title: "Error",
-            text: msg,
-            icon: 'error'
-          })
-        return false;
-      }
-      return true;
-    };
+    validar(data)
   };
   ResetTableAndForm = (e) => {
     this.ClearForm(e);
