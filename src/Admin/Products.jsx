@@ -43,6 +43,27 @@ export default class Products extends Component {
     }, 1500);
   }
 
+validar(data) {
+    let msg = ''
+    let hayError = false
+    if (data.pro_name == '') {
+        msg = 'Por favor, introduce un nombre';
+        hayError = true;
+      }
+      if (data.pro_price == '' || data.pro_price == '0.00') {
+        msg = 'Por favor, introduce un precio valido';
+        hayError = true;
+      }
+    if (hayError) {
+        Swal.fire({
+          title: "Error",
+          text: msg,
+          icon: 'error'
+        })
+      return ({msg:msg, hayError:false});
+    }
+    return true;
+  };
 
 
   SetDataTableStyle(e) {
@@ -99,7 +120,9 @@ export default class Products extends Component {
     // element = e.target
     let data = this.state.form_data;
     // console.log(data);
-    if (!validar) {
+    let ajas = this.validar(data)
+    if (ajas==false) {
+      Alert.Toast("error","Introduce datos correctos")
       return
     }
     const request = async () => {
@@ -149,26 +172,7 @@ export default class Products extends Component {
       Alert.Toast(res.alert_icon, res.alert_text);
       this.ResetTableAndForm(e);
     });
-    const validar = (data) => {
-      msg = ''
-      hayError = false
-      if (data.pro_name == '') {
-        msg = 'Por favor, introduce un nombre';
-        hayError = true;
-      }
-      if (data.pro_price == '' || data.pro_price == '0.00') {
-        msg = 'Por favor, introduce un precio valido';
-      }
-      if (hayError) {
-          Swal.fire({
-            title: "Error",
-            text: msg,
-            icon: 'error'
-          })
-        return false;
-      }
-      return true;
-    };
+    validar(data)
   };
   ResetTableAndForm = (e) => {
     this.ClearForm(e);

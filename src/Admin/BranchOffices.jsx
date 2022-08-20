@@ -153,7 +153,6 @@ validar(data) {
     let data = this.state.form_data;
     // console.log(data);
     let ajas = this.validar(data)
-    console.log("🚀 ~ file: Categories.jsx ~ line 125 ~ Categories ~ CreateObject= ~ ajas", ajas)
     if (ajas==false) {
       Alert.Toast("error","Introduce datos correctos")
       return
