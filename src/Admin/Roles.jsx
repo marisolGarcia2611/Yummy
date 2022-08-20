@@ -55,10 +55,17 @@ export default class Roles extends Component {
           targets: "_all",
         },
       ],
-      dom: '<"row"<"col-md-6 "l> <"col-md-6"f> > rt <"row"<"col-md-6 "i> <"col-md-6"p> >',
+      // dom: 'Bfrtip',
+      dom: '<"row mb-1"<"col-md-4"B>><"row"<"col-md-6 "l> <"col-md-6"f> > rt <"row"<"col-md-6 "i> <"col-md-6"p> >',
       lengthMenu: [
         [5, 10, 50, 100, -1],
         [5, 10, 50, 100, "Todos"],
+      ],
+      buttons: [
+        'copyHtml5',
+        'excelHtml5',
+        'csvHtml5',
+        'pdfHtml5'
       ],
       pageLength: 10,
       deferRender: true,

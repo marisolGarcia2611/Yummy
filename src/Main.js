@@ -14,6 +14,9 @@ import Cookies from "universal-cookie";
 import BlockUI from "./componentes/BlockUI/BlockUI";
 import { Link, NavLink } from "react-router-dom";
 
+const Cookie = new Cookies();
+const role_id = Cookie.get("role_id");
+
 function Main() {
   const [block, setBlock] = useState(false);
   return (
@@ -24,7 +27,7 @@ function Main() {
 
       {/* PARA IR AL ADMINISTRATIVO */}
 
-      <div className="btn__adm">
+      <div className="btn__adm" hidden={role_id < 2}>
         <NavLink to="/Admin/Usuarios" className="">
           <button type="button" className=" btn btn-outline-secondary">
             <b>Acceso Administrativo</b>

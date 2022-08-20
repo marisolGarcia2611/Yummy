@@ -116,6 +116,7 @@ class Users extends Component {
         [e.target.name]: e.target.value,
       },
     });
+    e.target.value
     // console.log(this.state.form_data)
   };
 
@@ -226,6 +227,23 @@ class Users extends Component {
     this.GetListUsers(e);
     document.querySelector(".btn-close").click();
   };
+
+  // handleValidateInput = async (input) => {
+  //   console.log(input);
+  //   let message_box = document.querySelector(`#message_validate_${input.name}`)
+  //   console.log(message_box);
+  //   if (input.value == "") {
+  //     console.log("click submit");
+  //     input.classList.add("is-invalid")
+  //     message_box.classList.add("invalid-feedback")
+  //     message_box.value = "Este campo es requerido";
+  //     return false
+  //   }
+  //   input.classList.add("is-valid")
+  //   message_box.classList.add("valid-feedback")
+  //   message_box.value = "";
+  //   return true;
+  // }
 
   DeleteObject = async (e) => {
     let id = e.target.getAttribute("data-id");

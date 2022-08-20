@@ -10,8 +10,10 @@ import BlockUI from "./componentes/BlockUI/BlockUI";
 import { useAuth } from "./context/authContext";
 import Cookies from "universal-cookie";
 import Swal from "sweetalert2";
-const cookies = new Cookies();
+import { AlertClass } from "./AlertClass";
 
+const cookies = new Cookies();
+const Alert = new AlertClass()
 function LogIn() {
   const { credenciales, inputChange, changeState, login, setCookies } =
     useAuth();
@@ -23,9 +25,31 @@ function LogIn() {
     if (cookies.get("Authorization")) navigate("/Main");
   }, []);
 
+  const ValidateInput = async (input) => {
+    console.log(input);
+    let message_box = document.querySelector(`#message_validate_${input.name}`)
+    console.log(message_box);
+    if (input.value == "") {
+      console.log("click submit");
+      input.classList.add("is-invalid")
+      message_box.classList.add("invalid-feedback")
+      message_box.value = "Este campo es requerido";
+      return false
+    }
+    input.classList.add("is-valid")
+    message_box.classList.add("valid-feedback")
+    message_box.value = "";
+    return true;
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      let input_username = document.getElementsByName("username")[0]
+      let input_password = document.getElementsByName("password")[0]
+      if (!ValidateInput(input_username)) return
+      if (!ValidateInput(input_password)) return
+
       setBlock(true);
       const { data } = await login(credenciales);
       const { token } = data;
@@ -100,9 +124,13 @@ function LogIn() {
                     placeholder="Email address"
                     className="form-control"
                     name={"username"}
+                    data-input-name="usuario"
                     onChange={inputChange}
                     value={credenciales.username}
                   />
+                  <div id="message_validate_username" className="">
+                    El campo es requerido
+                  </div>
                 </div>
 
                 <div className="form-outline mb-4">
@@ -111,10 +139,14 @@ function LogIn() {
                     id="form3Example4"
                     placeholder="Password"
                     className="form-control"
-                    onChange={inputChange}
                     name={"password"}
+                    data-input-name="contraseña"
+                    onChange={inputChange}
                     value={credenciales.password}
                   />
+                  <div id="message_validate_password" className="">
+                    El campo es requerido
+                  </div>
                 </div>
 
                 <div className="form-check mb-4">
@@ -138,13 +170,12 @@ function LogIn() {
                   />
                 </div>
               </form>
-              <div>
+              {/* <div>
                 <h6 className="text-center text-muted">
                   You don't have an account?
                   <NavLink to="/SingUp">SingUp</NavLink>
-                  {/* <Link to="/SingUp">SingUp</Link> */}
                 </h6>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
