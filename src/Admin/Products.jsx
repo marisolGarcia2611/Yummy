@@ -99,6 +99,9 @@ export default class Products extends Component {
     // element = e.target
     let data = this.state.form_data;
     // console.log(data);
+    if (!validar) {
+      return
+    }
     const request = async () => {
       return await ProductService.CreateObject(data);
     };
@@ -146,6 +149,26 @@ export default class Products extends Component {
       Alert.Toast(res.alert_icon, res.alert_text);
       this.ResetTableAndForm(e);
     });
+    const validar = (data) => {
+      msg = ''
+      hayError = false
+      if (data.pro_name == '') {
+        msg = 'Por favor, introduce un nombre';
+        hayError = true;
+      }
+      if (data.pro_price == '' || data.pro_price == '0.00') {
+        msg = 'Por favor, introduce un precio valido';
+      }
+      if (hayError) {
+          Swal.fire({
+            title: "Error",
+            text: msg,
+            icon: 'error'
+          })
+        return false;
+      }
+      return true;
+    };
   };
   ResetTableAndForm = (e) => {
     this.ClearForm(e);
