@@ -123,6 +123,9 @@ class Users extends Component {
     // element = e.target
     let data = this.state.form_data;
     // console.log(data);
+    if (!validar) {
+      return
+    }
     const request = async () => {
       return await userService.CreateObject(data);
     };
@@ -176,6 +179,47 @@ class Users extends Component {
       Alert.Toast(res.alert_icon, res.alert_text);
       this.ResetTableAndForm(e);
     });
+    const validar = (data) => {
+      msg = ''
+      hayError = false
+      if (data.name == '') {
+        msg = 'Por favor, introduce un nombre';
+        hayError = true;
+      }
+      if (data.last_name == '') {
+        msg = 'Por favor, introduce un apellido';
+        hayError = true;
+      }
+      if (data.email == '') {
+        msg = 'Por favor, introduce un email válido. Ejemplo: example@example.com';
+        hayError = true;
+      }
+      if (data.username == '') {
+        msg = "Por favor, introduce un nombre de usuario";
+        hayError = true;
+      }
+      if (data.password=='' || data.password<6) {
+        msg = "Por favor introduce una contraseña que tenga almenos 6 caracteres";
+        hayError = true;
+      }
+      if (data.role_id == '') {
+        msg = "Por favor, introduce un rol";
+        hayError = true;
+      }
+      if (data.phone = '' || data.phone > 10) {
+        msg = 'Por favor, introduce un número de télefono válido';
+        hayError = true;
+      }
+      if (hayError) {
+          Swal.fire({
+            title: "Error",
+            text: msg,
+            icon: 'error'
+          })
+        return false;
+      }
+      return true;
+    };
   };
   ResetTableAndForm = (e) => {
     this.ClearForm(e);

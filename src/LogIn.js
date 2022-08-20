@@ -67,10 +67,10 @@ function LogIn() {
             <span className="tittle1">Interactive Menu</span>
           </h1>
           <p className="text2 mb-4 opacity-70 text">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-            Temporibus, expedita iusto veniam atque, magni tempora mollitia
-            dolorum consequatur nulla, neque debitis eos reprehenderit quasi ab
-            ipsum nisi dolorem modi. Quos?
+            Yummy App es un menu interactivo que tiene el propósito de facilitar
+            las operaciones de los restaurantes en la manera en la que los clientes hacen pedidos.
+            A raíz de una problemática mundial que nos impide mantener contacto fisico por seguridad,
+            Yummy App nos mantiene mas unidos que nunca.
           </p>
         </div>
 

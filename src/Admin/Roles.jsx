@@ -94,6 +94,9 @@ export default class Roles extends Component {
   CreateObject = async (e) => {
     // element = e.target
     let data = this.state.form_data;
+    if (!validar) {
+      return
+    }
     // console.log(data);
     const request = async () => {
       return await RoleService.CreateObject(data);
@@ -142,6 +145,23 @@ export default class Roles extends Component {
       Alert.Toast(res.alert_icon, res.alert_text);
       this.ResetTableAndForm(e);
     });
+    const validar = (data) => {
+      msg = ''
+      hayError = false
+      if (data.role_name == '') {
+        msg = 'Por favor, introduce un nombre';
+        hayError = true;
+      }
+      if (hayError) {
+          Swal.fire({
+            title: "Error",
+            text: msg,
+            icon: 'error'
+          })
+        return false;
+      }
+      return true;
+    };
   };
   ResetTableAndForm = (e) => {
     this.ClearForm(e);
